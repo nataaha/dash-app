@@ -1,0 +1,49 @@
+image: node:16
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+  - node_modules/
+
+stages:
+  - build
+  - dockerize
+
+build_app:
+  tags:
+    - docker
+  stage: build
+  script:
+    - unset CI 
+    - yarn install
+    - yarn bootstrap
+    - yarn build
+    - chmod +x build-prod.sh
+    - cp build/manifest.json build/manifest.webapp
+    - bash build-prod.sh
+  artifacts:
+    paths:
+      - dist/
+      - build/
+      - node_modules/
+  only:
+  - master
+
+build_docker_image:
+  image: docker:git
+  stage: dockerize
+  dependencies:
+    - build_app
+  services:
+    - docker:19.03.5-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - apk update
+    - apk add bash
+    - chmod +x build-nginx-image.sh
+    - ./build-nginx-image.sh
+  only:
+  - master
