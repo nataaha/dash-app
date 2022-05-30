@@ -61,3 +61,6 @@ apps/*/node_modules
 lerna-debug.log*
 .yarn*
 .next*
+.yalc
+.yalc.lock
+/admin

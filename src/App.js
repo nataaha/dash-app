@@ -31,8 +31,7 @@ const App = ( props ) => {
   // From User, get user props and check for restricted access group and create a flag on User Context
   
   const restrictedAccess = (isGroupValid(user?.userGroups,'specialforces','code') || isGroupValid(user?.userGroups,'special_forces','code')) ;
-  const isAppAdmin = (isGroupValid(user?.userGroups,'ELMIS_ADMIN','code') || isGroupValid(user?.userGroups,'ELMISADMIN','code'));
-  const isSuperAdmin = userIsSuperAdmin(user);
+  const isSuperOrAdmin = userIsSuperAdmin(user,'elmis');
   console.log('Loaded Data/View Access');         
   access = { 
     'dataEntry': entryData?.organisationUnits,
@@ -63,8 +62,8 @@ const App = ( props ) => {
       locationGroup: 'specialforces'
     },
     permissions:{
-      appAdmin: isAppAdmin, 
-      superAdmin: isSuperAdmin
+      isAppAdmin: isSuperOrAdmin.isAdmin, 
+      isSuperAdmin: isSuperOrAdmin.isSuperAdmin
     },
     viewAccess:ousView,
     createAccess:ous

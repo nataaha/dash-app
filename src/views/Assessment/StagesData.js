@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v5 as uuid } from 'uuid';
 
 export const leadershipAndGovernance = [
   {

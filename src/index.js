@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  CheckApi,
-  getAppPath,
+  getUrls,
   awaitFetcher,
   AuthProvider
 } from '@alkuip/core';
@@ -10,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import AppAuthConfig from './AppAuthConfig';
 import { HashRouter as Router } from "react-router-dom";
 import { AuthDhis2Provider  } from './AuthDhis2Provider';
-//import $RefParser from "@apidevtools/json-schema-ref-parser";
+import { Admin, LoginPage,TestPage } from './admin';
 
 /***
  * Exports 
@@ -22,27 +21,26 @@ export { routes } from './Routes';
  * Initialize the Platform Application
  */
 const initApp = async () => {
-  const appUrl = getAppPath('eLMIS');
-  const appData  = await awaitFetcher(`${ appUrl }/AppConfig.json`,null);
-  const checkUrl = CheckApi(appData);
-  // log app info
-  console.info(
-    'ALKUIP Platform app'
-  ); 
-  /*try {
-    let schema = await $RefParser.dereference("https://192.168.92.128/api/fhir/schemas/61e07d665679a84886ac9c73");
-    console.log("Resolved Schema:",schema);
-  }
-  catch(err) {
-    console.error(err);
-  }*/
+  const appData  = await awaitFetcher(`AppConfig.json`,null);
+  const checkUrl = getUrls(appData);
   ReactDOM.render(
     <Router>
-      <AuthProvider authProvider={ AuthDhis2Provider }>
-        <AppAuthConfig
-          apiConfig = {checkUrl}
-        />
-      </AuthProvider>
+      {/*
+        <AuthProvider authProvider={ AuthDhis2Provider }>
+          <AppAuthConfig
+            apiConfig = {checkUrl}
+          />
+        </AuthProvider>
+        */
+      }
+      {
+        <Admin 
+          loginPage={<LoginPage/> } 
+          registerPage={<TestPage/> }
+          appConfig = { checkUrl }
+        >
+        </Admin>
+      }
     </Router>,document.getElementById('root')
   );
 };

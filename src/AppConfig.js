@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import App from './App';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { useToken, awaitFetcher } from '@alkuip/core';
+import { useToken } from '@alkuip/core';
+import AppAuthConfig from 'AppAuthConfig';
 /**
  * Config I18n Internationalization
 **/
@@ -11,20 +12,18 @@ const AppConfig = ( props ) => {
   const token = useToken();
   const [authenticated,setAuthenticated] = useState(false);
   const [authMessage,setAuthMessage] = useState("NOT_AUTHENTICATED");
-  const authenticate =useCallback(async()=>{
-    if(token){
-      setAuthenticated(true);
-      setAuthMessage('AUTHENTICATED');
-    }
-    else{
-        setAuthMessage('AUTHENTICATING');
-        const auth = await awaitFetcher(`${apiConfig?.dataStore}/dataStore`,
-          {
+  const authenticate =useCallback(()=>{
+    setAuthMessage('AUTHENTICATING');
+    if(token?.ds && apiConfig?.dataStore){
+      fetch(`${apiConfig?.dataStore}/dataStore`,
+        {
+          headers: {
             'x-api-key': token?.ds,
-            'strategy': 'apiKey',
-            'Authorization': token?.api
+            'strategy': 'apiKey'
           }
-        );
+        }
+      ).then(async(res)=>{
+        const auth = await res.json();
         if(auth?.authenticated && (auth !== 401 || auth !== 403)){
           setAuthenticated(true);
           setAuthMessage('AUTHENTICATED');
@@ -33,11 +32,17 @@ const AppConfig = ( props ) => {
           setAuthenticated(false);
           setAuthMessage('FAILED');
         }
+      })
     }
-  },[apiConfig?.dataStore, token]);
+    else{
+      setAuthenticated(false);
+      setAuthMessage('FAILED');
+    }
+    
+  },[apiConfig?.dataStore,token?.ds]);
 
   useEffect(()=>{
-    authenticate();
+      authenticate();
   },[authenticate]);
   return (
     authenticated?(
@@ -47,7 +52,13 @@ const AppConfig = ( props ) => {
       <div>
       { 
         authMessage ==='FAILED'?(
-          <span>Not Authenticated.</span>
+          <>
+            <span>Log in failed. Please login.</span>
+              <AppAuthConfig
+              apiConfig = { apiConfig}
+            />
+          </>
+          
         ):
         (
           <span>Logging in ..........</span>

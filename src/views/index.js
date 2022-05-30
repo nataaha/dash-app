@@ -12,3 +12,4 @@ export { default as UserList } from './UserList';
 export { default as LocationRegistry } from './LocationRegistry';
 export { default as HisSetup } from './setup';
 export { default as HisAssessment } from './Assessment';
+export * from './Accreditation';

@@ -17,8 +17,8 @@ const LocationRegistry = (props) => {
       footer= {``}        
       uischemas ={
         [
-          { type: 'dashboard',uischema: locationUiSchema},
-          { type: 'add',uischema:undefined },
+          { action: 'dashboard',uischema: locationUiSchema},
+          { action: 'add',uischema:undefined },
         ]
       }
       appName = { `location`}

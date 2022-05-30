@@ -1,6 +1,17 @@
-import React from 'react';
+
+import * as React from 'react';
 import { CoreAdminContext } from './CoreAdminContext';
 
-export const AdminContext = (props) => (
-    <CoreAdminContext {...props} />
-);
+import { defaultTheme } from './DefaultTheme';
+
+export const AdminContext = (props) => {
+    const { theme = defaultTheme, apiConfig, children, ...rest } = props;
+    return (
+        <CoreAdminContext
+            apiConfig ={ apiConfig }
+            {...rest}
+        >
+            {children}
+        </CoreAdminContext>
+    );
+};

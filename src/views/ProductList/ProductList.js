@@ -6,7 +6,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import { ProductCard } from '@alkuip/core';
 import { UsersToolbar } from '@alkuip/forms';
-import mockData from './data';
+import { mockData } from './data';
 
 const useStyles = makeStyles(theme => ({
   root: {

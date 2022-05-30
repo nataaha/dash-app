@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 
 import { UsersToolbar, UsersTable } from './components';
-import mockData from './data';
+import { mockData } from './data';
 
 const useStyles = makeStyles(theme => ({
   root: {

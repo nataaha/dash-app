@@ -8,18 +8,30 @@ export const CoreAdmin = (props) => {
         children,
         loading,
         loginPage,
+        registerPage,
         logoutButton,
-        title = 'ALKUIP Platform Admin',
+        title,
+        basename,
+        ready,
+        requireAuth,
+        layout
     } = props;
     return (
         <CoreAdminContext
             authProvider={authProvider}
+            basename={basename}
         >
             <CoreAdminUI
                 title={title}
                 loading={loading}
                 loginPage={loginPage}
-                logout={authProvider ? logoutButton : undefined}
+                registerPage ={ registerPage }
+                logout={
+                    authProvider ? logoutButton : undefined
+                }
+                layout={layout}
+                requireAuth={requireAuth}
+                ready={ready}
             >
                 {children}
             </CoreAdminUI>

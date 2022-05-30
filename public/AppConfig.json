@@ -1,5 +1,7 @@
 {
     "url":"https://dhis.nataaha.com",
     "api":"https://datax.nataaha.com",
-    "dataStore":"https://192.168.92.128/api"
+    "dataStore":"https://192.168.92.128/api",
+    "standalone": true,
+    "defaultPage": "hissoci"
 }

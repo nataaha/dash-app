@@ -141,10 +141,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignUp = props => {
+  const { title } = props;
   const navigate = useNavigate();
 
   const classes = useStyles();
-
   const [formState, setFormState] = useState({
     isValid: false,
     values: {},
@@ -152,7 +152,7 @@ const SignUp = props => {
     errors: {}
   });
 
-  useEffect(() => {
+  /*useEffect(() => {
     const errors = validate(formState.values, schema);
 
     setFormState(formState => ({
@@ -161,7 +161,7 @@ const SignUp = props => {
       errors: errors || {}
     }));
   }, [formState.values]);
-
+*/
   const handleChange = event => {
     event.persist();
 
@@ -210,8 +210,7 @@ const SignUp = props => {
                 className={classes.quoteText}
                 variant="h1"
               >
-                Hella narwhal Cosby sweater McSweeneys, salvia kitsch before
-                they sold out High Life.
+                { title??''}
               </Typography>
               <div className={classes.person}>
                 <Typography
@@ -285,6 +284,20 @@ const SignUp = props => {
                   onChange={handleChange}
                   type="text"
                   value={formState.values.lastName || ''}
+                  variant="outlined"
+                />
+                <TextField
+                  className={classes.textField}
+                  error={hasError('organisation')}
+                  fullWidth
+                  helperText={
+                    hasError('organisation') ? formState.errors.organisation[0] : null
+                  }
+                  label="Organisation"
+                  name="organisation"
+                  onChange={handleChange}
+                  type="text"
+                  value={formState.values.organisation || ''}
                   variant="outlined"
                 />
                 <TextField
@@ -363,7 +376,7 @@ const SignUp = props => {
                   Have an account?{' '}
                   <Link
                     component={RouterLink}
-                    to="/sign-in"
+                    to="/login"
                     variant="h6"
                   >
                     Sign in

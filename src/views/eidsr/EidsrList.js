@@ -17,8 +17,8 @@ const EidsrList = (props) => {
         footer= {``}        
         uischemas ={
           [
-            { type: 'dashboard',uischema: idsrUiSchema},
-            { type: 'add',uischema:idsrUiSchema },
+            { action: 'dashboard',uischema: idsrUiSchema},
+            { action: 'add',uischema:idsrUiSchema },
           ]
         }
         appName = { `eidsr`}

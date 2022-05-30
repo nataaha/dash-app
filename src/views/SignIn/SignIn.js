@@ -325,7 +325,7 @@ const SignIn = props => {
                   Dont have an account?{' '}
                   <Link
                     component={RouterLink}
-                    to="/sign-up"
+                    to="/signup"
                     variant="h6"
                   >
                     Sign up

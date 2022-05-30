@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-
-import React,{ useState,useReducer} from 'react';
+import React,{ useState,useReducer, useEffect } from 'react';
 import theme from './theme';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import {
@@ -9,7 +7,9 @@ import {
 } from '@alkuip/core';
 import { ThemeProvider } from '@mui/material';
 import AppConfig from './AppConfig';
-import { LoginPage } from './admin';
+import { Admin, LoginUiPage } from './admin';
+import { SignUp } from 'views';
+import { AppPublicRoutes } from 'Routes';
 
 /**
  * Auth Login Page
@@ -18,6 +18,7 @@ import { LoginPage } from './admin';
 const AppAuthConfig = ( props ) => {
   const { apiConfig } = props; 
   const [loading, setLoading] = useState(true);
+  const [isStandalone,setIsStandalone] = useState(false);
   const login = useLogin();
   const [formInput, setFormInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -31,14 +32,10 @@ const AppAuthConfig = ( props ) => {
     baseUrl: apiConfig?.url,
     dataStore: apiConfig?.dataStore,
     headers: {
-      ...apiConfig?.headers,
-      //'Authorization': authHeader
+      ...apiConfig?.headers
     },
-    externalDataStore: true,
-    externalConfigStore: true,
+    defaultPage: apiConfig?.defaultPage
   }
-
-
   const handleInput = evt => {
     const name = evt.target.name;
     const newValue = evt.target.value;
@@ -47,22 +44,37 @@ const AppAuthConfig = ( props ) => {
   const handleClick = (_event)=>{
       _event.preventDefault();
       setLoading(true);
-      login({ url: apiConfig?.url ,username: formInput?.j_username, password: formInput?.j_password }, '/').then((t) => {
+      if(!isStandalone){
+        setLoading(false);
+        return;
+      }
+      login({ url: apiConfig?.url ,username: formInput?.j_username, password: formInput?.j_password }).then((t) => {
         setLoading(false);
       });
   }
+  useEffect(()=>{
+    setIsStandalone(apiConfig?.standalone)
+  },[apiConfig?.standalone])
+
   return (
          <ThemeProvider theme={ theme}>
             <ConfigContext.Provider value={configCtx}>
               {
-                !loading ?
+                (!loading) ?
                 (
                   <AppConfig
                     apiConfig = { apiConfig }
                   />
                 ):
                 (
-                  <LoginPage handleClick= { handleClick } handleInput = { handleInput } />
+                  
+                  <LoginUiPage
+                    handleClick= { handleClick } 
+                    handleInput = { handleInput }
+                    standaloneApp = { isStandalone }
+                    apiConfig = { apiConfig }
+                  />
+                 
                 )              
             }
             </ConfigContext.Provider>

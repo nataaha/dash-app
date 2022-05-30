@@ -5,8 +5,10 @@ import {
   Main as MainLayout, 
   Minimal as MinimalLayout
 } from '@alkuip/components';
-
-import { Route } from 'react-router-dom';
+import { 
+  Route, 
+  Routes 
+} from 'react-router-dom';
 import {
   Dashboard as DashboardView,
   ProductList as ProductListView,
@@ -21,6 +23,8 @@ import {
   LocationRegistry as LocationRegistryView,
   HisSetup as HisSetupView,
   HisAssessment as HisAssessView,
+  Accreditation as AccreditationView,
+  HisDocumentation
 } from './views';
 import { LogoutButton } from './LogOut';
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -30,7 +34,6 @@ import TextFieldsIcon from '@mui/icons-material/TextFields';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { Routes } from 'react-router-dom';
 import { Authenticated } from '@alkuip/core';
 export const routes = [
   {
@@ -43,7 +46,7 @@ export const routes = [
     title: 'Dashboard',
     href: '/dashboard',
     icon: <DashboardIcon />,
-    elmis: true
+    elmis: false
   },
   {
     path: '/assess/:id',
@@ -54,6 +57,15 @@ export const routes = [
     component: HisAssessView,
     title: 'HIS SOCI Assessment',
     href: '/assess/dashboard',
+    icon: <PeopleIcon />,
+    elmis: true,
+    isAdminVisible: true
+  },
+  {
+    path: '/assess/documentation',
+    component: HisDocumentation,
+    title: 'Documentation',
+    href: '/assess/documentation',
     icon: <PeopleIcon />,
     elmis: true,
     isAdminVisible: true
@@ -81,7 +93,7 @@ export const routes = [
     title: 'Location Registry',
     href: '/location/dashboard',
     icon: <PeopleIcon />,
-    elmis: true
+    elmis: false
   },
   {
     path: '/elmis/:id',
@@ -94,6 +106,15 @@ export const routes = [
     href: '/elmis/dashboard',
     icon: <ShoppingCartIcon />,
     elmis: true
+  },
+  {
+    path: '/accreditation/*',
+    component: AccreditationView,
+    title: 'Accreditation',
+    href: '/accreditation/register',
+    icon: <PeopleIcon />,
+    elmis: true,
+    isAdminVisible: true
   },
   {
     path: '/users',
@@ -115,7 +136,7 @@ export const routes = [
     title: 'eIDSR',
     href: '/eidsr',
     icon: <TextFieldsIcon />,
-    elmis: true
+    elmis: false
   },
   {
     path: '/account',
@@ -132,23 +153,7 @@ export const routes = [
     title: 'Settings',
     icon: <SettingsIcon />
   },
-  {
-    path: '/sign-up',
-    component: SignUpView,
-    title: 'Sign Up',
-    layout: 'minimal',
-    icon: <AccountBoxIcon />,
-    elmis: false
-  },
-  {
-    path: '/login',
-    component: SignInView,
-    layout: 'minimal',
-    title: 'Sign In',
-    href: '/login',
-    icon: <LockOpenIcon />,
-    elmis: false
-  },
+
   {
     title: 'Resource APIs',
     type: 'external',
@@ -168,15 +173,61 @@ export const routes = [
     layout: 'minimal'
   }
 ];
-
+const noAuthRequiredRoutes =[
+  {
+    path: '/signup',
+    component: SignUpView,
+    title: 'Sign Up',
+    layout: 'minimal',
+    icon: <AccountBoxIcon />,
+    elmis: true
+  },
+  {
+    path: '/login',
+    component: SignInView,
+    layout: 'minimal',
+    title: 'Sign In',
+    href: '/login',
+    icon: <LockOpenIcon />,
+    elmis: true
+  }
+];
+export const AppPublicRoutes = ( props ) => {
+  return (
+    <Routes>
+      {
+        noAuthRequiredRoutes?.map((noRoute,ni)=>{
+          return(
+            <Route
+              key= { `no-auth-${ni}` }
+              path = { noRoute.path }
+              element = { noRoute?.component??(<div></div>)}
+            />
+          )
+        })
+      }
+    </Routes>
+  )
+}
 const AppRoutes = ( props ) => {
   return (
     <Routes>
       {
+        noAuthRequiredRoutes?.map((noRoute,ni)=>{
+          return(
+            <Route
+              key= { `no-auth-${ni}` }
+              path = { noRoute.path }
+              element = { noRoute?.component??(<div></div>)}
+            />
+          )
+        })
+      }
+      {
         map(routes,(route, i) => {
           return(
             <Route
-              key={i} 
+              key={ `route-${i}`} 
               path = { route.path }
               element={
                     route.layout === 'minimal'?
@@ -185,7 +236,7 @@ const AppRoutes = ( props ) => {
                         <MinimalLayout {...props } routes={ routes } >
                           <RouteWithLayout
                             route = { route }
-                            component = { route?.component??(<div> </div>) }
+                            component = { route?.component??(<div></div>) }
                           />
                         </MinimalLayout>
                       </Authenticated>
@@ -195,7 +246,7 @@ const AppRoutes = ( props ) => {
                         <MainLayout {...props} routes={ routes} >
                           <RouteWithLayout
                             route = { route }
-                            component = { route?.component??(<div> </div>) }
+                            component = { route?.component??(<div></div>) }
                           />
                         </MainLayout>
                       </Authenticated>

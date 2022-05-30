@@ -1,0 +1,32 @@
+{
+  "version": "v1",
+  "packages": {
+    "@alkuip/core": {
+      "signature": "f3176a9278b4ddd085d2db76a4399d0f"
+    },
+    "@alkuip/forms": {
+      "signature": "b6ad50d257301568c75cff9a7ebe9856"
+    },
+    "@alkuip/charts": {
+      "signature": "b3f32a6aaea6ed1a9d3a19ccff5b0834"
+    },
+    "@alkuip/maps": {
+      "signature": "4ac8eb00056f65fac45aa04709c655a9"
+    },
+    "@alkuip/jsonforms": {
+      "signature": "868b2cf00aa42cdea5ecc51fc0b3d22d"
+    },
+    "@alkuip/tables": {
+      "signature": "bfc60fb1e20efe7d5b2ad249fc8de739"
+    },
+    "@alkuip/components": {
+      "signature": "a72f756a8674db64c83c0d31a43d2a4b"
+    },
+    "@alkuip/visualization": {
+      "signature": "4cd523aece978e27578c6b6091ee0f34"
+    },
+    "@alkuip/dhis2": {
+      "signature": "a356ae78eb59a057404f9f042d220946"
+    }
+  }
+}

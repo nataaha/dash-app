@@ -1,25 +1,33 @@
-import { setToken } from '@alkuip/core';
-
+import { setToken,getToken } from '@alkuip/core';
+import { Buffer } from 'buffer';
 /**
  * This represents some generic auth provider API, like Firebase.
  */
  const AuthDhis2Provider ={
     isAuthenticated: false,
-    login: async({ url, username, password }) =>{
-      const authEncoded = "Basic " + Buffer.from(username + ":" + password).toString('base64');
-      const authRes = await fetch(`${url}/api/dataStore/ugx_elmis/setup`,{
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
+    login: async({url, username, password }) =>{
+      const token = getToken();
+      let authEncoded =  token?.api;
+      let headers = new Headers();
+      if(username !==''){
+        authEncoded = "Basic " + Buffer.from(username + ":" + password).toString('base64');
+        setToken(undefined,authEncoded);
+        headers = {
+          ...headers,
           "Authorization": authEncoded
         }
+      }
+      const authRes = await fetch(`${url}/api/dataStore/ugx_elmis/setup`,{
+        credentials: 'include',
+        headers: headers
       });
       if (authRes.status < 200 || authRes.status >= 300) {
         throw new Error(authRes.statusText);
       }
       const auth = await authRes.json();
-      setToken(auth?.apiKey,authEncoded); 
+      setToken(auth?.apiKey,undefined); 
       AuthDhis2Provider.isAuthenticated = true;
+      setTimeout(()=>{ return; }, 100);
       return auth;
     },
     logout: ()=> {
