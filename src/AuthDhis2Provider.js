@@ -5,11 +5,11 @@ import { Buffer } from 'buffer';
  */
  const AuthDhis2Provider ={
     isAuthenticated: false,
-    login: async({url, username, password }) =>{
+    login: async({url, username, password,dsUrl,integration,standalone }) =>{
       const token = getToken();
       let authEncoded =  token?.api;
       let headers = new Headers();
-      if(username !==''){
+      if((username !=='') && standalone && (password !=='')){
         authEncoded = "Basic " + Buffer.from(username + ":" + password).toString('base64');
         setToken(undefined,authEncoded);
         headers = {
@@ -25,14 +25,32 @@ import { Buffer } from 'buffer';
         throw new Error(authRes.statusText);
       }
       const auth = await authRes.json();
+      
       setToken(auth?.apiKey,undefined); 
-      AuthDhis2Provider.isAuthenticated = true;
-      setTimeout(()=>{ return; }, 100);
-      return auth;
+      if(dsUrl){
+        
+        const dsAuthRes = await fetch(`${dsUrl}/dataStore`,
+          {
+            headers: {
+              'x-api-key': auth?.apiKey,
+              'strategy': 'apiKey'
+            }
+          }
+        );
+        const dsAuth = await dsAuthRes.json();
+        if(dsAuth?.authenticated){
+          return dsAuth;
+        }
+        else{
+          throw new Error(dsAuthRes.statusText);
+          //return Promise.reject({ redirectTo: '/login', logoutUser: false });
+        }
+      }
+      return Promise.resolve();
     },
-    logout: ()=> {
-      localStorage.removeItem('auth');
-      localStorage.removeItem('dsApiKey');
+    logout: async()=> {
+      sessionStorage.removeItem('auth');
+      sessionStorage.removeItem('dsApiKey');
       setTimeout(()=>{}, 100);
     },
     checkError: (error) => {
@@ -45,9 +63,24 @@ import { Buffer } from 'buffer';
       // other error code (404, 500, etc): no need to log out
       return Promise.resolve();
     },
-    checkAuth: ({ url, username, password }) => (localStorage.getItem('auth') && localStorage.removeItem('dsApiKey'))
-        ? Promise.resolve()
-        : Promise.reject(),
+    checkAuth: (params) => {
+      if(sessionStorage.getItem('auth') && sessionStorage.getItem('dsApiKey')){
+        return Promise.resolve();
+      }
+      return Promise.reject({ redirectTo: '/login' });
+    },
+    getIdentity: () => {
+      try {
+          const { id, fullName,displayName, avatar } = JSON.parse(sessionStorage.getItem('auth'));
+          return Promise.resolve({ id, fullName, displayName, avatar });
+      } catch (error) {
+          return Promise.reject(error);
+      }
+    },
+    getPermissions: () => {
+        // Required for the authentication to work
+        return Promise.resolve();
+    },
   };
 
   export { 

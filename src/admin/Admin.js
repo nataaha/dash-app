@@ -1,6 +1,10 @@
 import React from 'react';
 import { AdminContext } from './AdminContext';
 import { AdminUI}  from './AdminUi';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import {
+  ConfigContext,
+} from '@alkuip/core';
 
 export const Admin = (props) => {
     const {
@@ -21,31 +25,44 @@ export const Admin = (props) => {
         layout,
         apiConfig
     } = props;
-
+    const configCtx = {
+        ...apiConfig,
+        integration: apiConfig?.api,
+        baseUrl: apiConfig?.url,
+        dataStore: apiConfig?.dataStore,
+        headers: {
+          ...apiConfig?.headers
+        },
+        defaultPage: apiConfig?.defaultPage,
+        standalone: apiConfig?.standalone
+    }
     return (
-        <AdminContext
-            authProvider={authProvider}
-            basename={basename}
-            store={store}
-            theme={theme}
-            apiConfig = { apiConfig }
-        >
-            <AdminUI
-                title={title}
-                loginPage={loginPage}
-                registerPage = { registerPage }
-                logout={authProvider ? logoutButton : undefined}
-                layout={layout}
-                dashboard={dashboard}
-                catchAll={catchAll}
-                notification={notification}
-                requireAuth={requireAuth}
-                ready={ready}
-                
+        <ConfigContext.Provider value={configCtx}>
+            <AdminContext
+                authProvider={authProvider}
+                basename={basename}
+                store={store}
+                theme={theme}
+                apiConfig = { apiConfig }
             >
-                {children}
-            </AdminUI>
-        </AdminContext>
+                <AdminUI
+                    title={title}
+                    loginPage={loginPage}
+                    registerPage = { registerPage }
+                    logout={authProvider ? logoutButton : undefined}
+                    layout={layout}
+                    dashboard={dashboard}
+                    catchAll={catchAll}
+                    notification={notification}
+                    requireAuth={requireAuth}
+                    ready={ready}
+                    apiConfig = { apiConfig }
+                    
+                >
+                    {children}
+                </AdminUI>
+            </AdminContext>
+        </ConfigContext.Provider>
     );
 };
 

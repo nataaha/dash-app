@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import AppAuthConfig from './AppAuthConfig';
 import { HashRouter as Router } from "react-router-dom";
 import { AuthDhis2Provider  } from './AuthDhis2Provider';
-import { Admin, LoginPage,TestPage } from './admin';
+import { Admin, LoginPage,SignInPage ,Login3ColsPage, CustomLayout} from './admin';
 
 /***
  * Exports 
@@ -22,7 +22,7 @@ export { routes } from './Routes';
  */
 const initApp = async () => {
   const appData  = await awaitFetcher(`AppConfig.json`,null);
-  const checkUrl = getUrls(appData);
+  //const checkUrl = getUrls(appData);
   ReactDOM.render(
     <Router>
       {/*
@@ -35,11 +35,12 @@ const initApp = async () => {
       }
       {
         <Admin 
+          authProvider={ AuthDhis2Provider }
           loginPage={<LoginPage/> } 
-          registerPage={<TestPage/> }
-          appConfig = { checkUrl }
-        >
-        </Admin>
+          registerPage={<SignInPage/> }
+          apiConfig = { appData }
+          //layout={CustomLayout}
+        />
       }
     </Router>,document.getElementById('root')
   );

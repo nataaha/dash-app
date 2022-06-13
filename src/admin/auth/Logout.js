@@ -14,7 +14,7 @@ import { useLogout } from '@alkuip/core';
  * Used for the Logout Menu item in the sidebar
  */
 export const Logout = forwardRef((props, ref)=> {
-    const { className, redirectTo, icon, ...rest } = props;
+    const { className, redirectTo="/login", icon, ...rest } = props;
     const isXSmall = useMediaQuery((theme) =>
         theme.breakpoints.down('sm')
     );
@@ -28,8 +28,6 @@ export const Logout = forwardRef((props, ref)=> {
         <MenuItem
             onClick={handleClick}
             ref={ref}
-            // @ts-ignore
-            component={isXSmall ? 'span' : 'li'}
             {...rest}
         >
             <ListItemText>Logout</ListItemText>

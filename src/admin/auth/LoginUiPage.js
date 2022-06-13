@@ -30,7 +30,7 @@ export const LoginUiPage =(props)=>{
         standaloneApp
     } = props;
     const [loading, setLoading] = useSafeSetState(false);
-    const theme = useTheme();    
+    const theme = useTheme(); 
     return (
         <Paper 
         css={ content }

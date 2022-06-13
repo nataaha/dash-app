@@ -4,7 +4,6 @@ import {
 } from '@mui/material';
 
 export const HisOverview = (props) => {
-    //const classes = useStyles();
     return (
         <div>
             <Grid container spacing={2} direction="column" justifyContent="space-around">

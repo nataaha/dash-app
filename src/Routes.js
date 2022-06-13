@@ -35,10 +35,42 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { Authenticated } from '@alkuip/core';
+
 export const routes = [
+  {
+    path: '/assess/documentation',
+    component: HisDocumentation,
+    title: 'Documentation',
+    href: '/assess/documentation',
+    icon: <PeopleIcon />,
+    isUser: true,
+    isAdmin: true
+  },
   {
     path: '/',
     component: DashboardView,
+    isUser: true,
+    isAdmin: true,
+    children:[
+      {
+        path: '/:appName',
+        component: HisAssessView,
+        title: 'HIS SOCI Assessment',
+        href: '/assess/dashboard',
+        icon: <PeopleIcon />,
+        isUser: true,
+        isAdmin: true
+      },
+      {
+        path: '/:appName/*',
+        component: HisAssessView,
+        title: 'HIS SOCI Assessment',
+        href: '/assess/dashboard',
+        icon: <PeopleIcon />,
+        isUser: true,
+        isAdmin: true
+      }
+    ]
   },
   {
     path: '/dashboard',
@@ -46,7 +78,7 @@ export const routes = [
     title: 'Dashboard',
     href: '/dashboard',
     icon: <DashboardIcon />,
-    elmis: false
+    isUser: false
   },
   {
     path: '/assess/:id',
@@ -58,17 +90,8 @@ export const routes = [
     title: 'HIS SOCI Assessment',
     href: '/assess/dashboard',
     icon: <PeopleIcon />,
-    elmis: true,
-    isAdminVisible: true
-  },
-  {
-    path: '/assess/documentation',
-    component: HisDocumentation,
-    title: 'Documentation',
-    href: '/assess/documentation',
-    icon: <PeopleIcon />,
-    elmis: true,
-    isAdminVisible: true
+    isUser: true,
+    isAdmin: true
   },
   {
     path: '/setup/:id',
@@ -80,8 +103,8 @@ export const routes = [
     title: 'Setup',
     href: '/setup/dashboard',
     icon: <PeopleIcon />,
-    elmis: true,
-    isAdminVisible: true
+    isUser: true,
+    isAdmin: true
   },
   {
     path: '/location/:id',
@@ -93,7 +116,7 @@ export const routes = [
     title: 'Location Registry',
     href: '/location/dashboard',
     icon: <PeopleIcon />,
-    elmis: false
+    isUser: false
   },
   {
     path: '/elmis/:id',
@@ -105,16 +128,20 @@ export const routes = [
     title: 'eLMIS',
     href: '/elmis/dashboard',
     icon: <ShoppingCartIcon />,
-    elmis: true
+    isUser: false
+  },
+  {
+    path: '/accreditation/:id',
+    component:  AccreditationView
   },
   {
     path: '/accreditation/*',
     component: AccreditationView,
     title: 'Accreditation',
-    href: '/accreditation/register',
+    href: '/accreditation/dashboard',
     icon: <PeopleIcon />,
-    elmis: true,
-    isAdminVisible: true
+    isUser: true,
+    isAdmin: true
   },
   {
     path: '/users',
@@ -136,7 +163,7 @@ export const routes = [
     title: 'eIDSR',
     href: '/eidsr',
     icon: <TextFieldsIcon />,
-    elmis: false
+    isUser: false
   },
   {
     path: '/account',
@@ -144,7 +171,7 @@ export const routes = [
     href: '/account',
     title: 'Account',
     icon: <AccountBoxIcon />,
-    elmis: false
+    isUser: false
   },
   {
     path: '/settings',
@@ -159,13 +186,14 @@ export const routes = [
     type: 'external',
     href: '//engine.diteqafrica.com/api/lrs?dataType=json&serviceType=lrs',
     icon: <PeopleIcon />,
-    elmis: false
+    isUser: false
   },
   {
     path: "/logout",
     component: LogoutButton,
     title: "Log Out",
-    layout: 'minimal'
+    layout: 'minimal',
+    isUser: false
   },
   {
     path: '*',
@@ -180,7 +208,7 @@ const noAuthRequiredRoutes =[
     title: 'Sign Up',
     layout: 'minimal',
     icon: <AccountBoxIcon />,
-    elmis: true
+    isUser: true
   },
   {
     path: '/login',
@@ -189,7 +217,7 @@ const noAuthRequiredRoutes =[
     title: 'Sign In',
     href: '/login',
     icon: <LockOpenIcon />,
-    elmis: true
+    isUser: true
   }
 ];
 export const AppPublicRoutes = ( props ) => {

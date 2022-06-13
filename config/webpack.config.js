@@ -292,6 +292,15 @@ module.exports = function (webpackEnv) {
       ],
     },
     resolve: {
+      // Added to support @react-pdf/renderer
+      fallback: {
+        process: require.resolve("process/browser"),
+        zlib: require.resolve("browserify-zlib"),
+        stream: require.resolve("stream-browserify"),
+        util: require.resolve("util"),
+        buffer: require.resolve("buffer"),
+        assert: require.resolve("assert"),
+      },
       // This allows you to set a fallback for where webpack should look for modules.
       // We placed these paths second because we want `node_modules` to "win"
       // if there are any conflicts. This matches Node resolution mechanism.
@@ -439,6 +448,9 @@ module.exports = function (webpackEnv) {
               test: /\.(js|mjs)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
+              resolve: {
+                fullySpecified: false,
+              },
               options: {
                 babelrc: false,
                 configFile: false,
@@ -562,10 +574,15 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      //Added for @react-pdf/renderer
+      new webpack.ProvidePlugin({
+        Buffer: ["buffer", "Buffer"],
+        process: "process/browser",
+      }),
       new NodePolyfillPlugin({
         excludeAliases: [
           "console",
-          "buffer"
+          "buffer",
         ]
       }),
       // Generates an `index.html` file with the <script> injected.

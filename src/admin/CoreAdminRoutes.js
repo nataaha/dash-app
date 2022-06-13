@@ -1,8 +1,7 @@
 import React from 'react';
 import {
     useState, 
-    useEffect, 
-    Children 
+    useEffect
 } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { 
@@ -14,7 +13,8 @@ import {
     WithPermissions, 
     useCheckAuth,
     useCreatePath,
-    useTimeout
+    useTimeout,
+    Authenticated
 } from '@alkuip/core';
 import { routes as resources } from '../Routes';
 
@@ -32,9 +32,7 @@ export const CoreAdminRoutes = React.memo((props ) => {
     } = props;
 
     const [canRender, setCanRender] = useState(!requireAuth);
-    const checkAuth = useCheckAuth();
-    console.log("Ch:re:",requireAuth)
-    
+    const checkAuth = useCheckAuth();    
     useEffect(() => {
         if (requireAuth) {
             checkAuth()
@@ -64,17 +62,35 @@ export const CoreAdminRoutes = React.memo((props ) => {
                 path="/*"
                 element={
                     <div>
-                        <Layout dashboard={dashboard} title={title}>
+                        <Layout dashboard={dashboard} title={title} resources={ resources }>
                             <Routes>
                                 { resources?.map((resource,i) => (
                                     <Route
                                     key={`route-${resource.path}-${i}`}
                                         path={`${resource.path}/*`}
                                         element={
-                                             <RouteWithLayout
-                                                route = { resource }
-                                                component = { resource?.component??(<div></div>) }
-                                            />
+                                            resource.layout === 'minimal'?
+                                            (
+                                                
+                                                    <MinimalLayout {...props } routes={ resources } >
+                                                        <RouteWithLayout
+                                                            route = { resource }
+                                                            component = { resource?.component??(<div></div>) }
+                                                        />
+                                                    </MinimalLayout>
+                                               
+                                            ):
+                                            (     
+                                                                                     
+                                                    <MainLayout {...props} routes={ resources } >
+                                                        <RouteWithLayout
+                                                            route = { resource }
+                                                            component = { resource?.component??(<div></div>) }
+                                                        />
+                                                    </MainLayout>
+                                                
+                                          
+                                            )
                                         }
                                     />
                                 ))}

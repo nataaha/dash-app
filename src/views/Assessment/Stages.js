@@ -5,13 +5,13 @@ import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import isEmpty from 'lodash/isEmpty';
 import { leadershipAndGovernance, managementAndWorkforce, informationAndTechnology, standardsAndInteroperability, dataQualityAndUse } from './StagesData';
-// import MuiTreeView from 'material-ui-treeview';
 
 const getTreeItemsFromData = treeItems => {
   return treeItems.map(treeItemData => {
     let children = undefined;
-    if (treeItemData.children && treeItemData.children.length > 0) {
+    if (Array.isArray(treeItemData.children) && !isEmpty(treeItemData.children)) {
       children = getTreeItemsFromData(treeItemData.children);
     }
     return (

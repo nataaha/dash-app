@@ -1,14 +1,16 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import { css } from '@emotion/react';
 import { 
     useTheme,
+    useMediaQuery 
 } from '@mui/material';
 import { AppBar as DefaultAppBar } from './AppBar';
 import { Sidebar as DefaultSidebar } from './Sidebar';
 import { Menu as DefaultMenu } from './Menu';
 //import { useSidebarState } from './useSidebarState';
+import Footer from './Footer';
 
-export const Layout = (props) => {
+export const GridLayout = (props) => {
     const {
         appBar: AppBar = DefaultAppBar,
         children,
@@ -22,14 +24,37 @@ export const Layout = (props) => {
         ...rest
     } = props;
     const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
+        defaultMatches: true
+    });
+    const [openSidebar, setOpenSidebar] = useState(false);
+    const handleSidebarOpen = () => {
+        setOpenSidebar(true);
+    };
+    
+    const handleSidebarClose = () => {
+        setOpenSidebar(false);
+    };
+    const shouldOpenSidebar = isDesktop ? true : openSidebar; 
+
     return (
         <div css={[root(theme),'layout', className]} {...rest}>
             <div css={ appFrame}>
+                <AppBar onSidebarOpen ={handleSidebarOpen} title={title} />
                 <main css={contentWithSidebar}>
+                    <Sidebar  
+                        onClose={handleSidebarClose}
+                        open={shouldOpenSidebar}
+                        variant={isDesktop ? 'persistent' : 'temporary'}
+                        css = { sidebarcss }
+                    >
+                        <Menu pages ={ resources } />
+                    </Sidebar>
                     <div id="main-content"  css ={ [root(theme),content(theme)]}>
                         { children}
                     </div>
                 </main>
+                <Footer/>
             </div>
         </div>
     );

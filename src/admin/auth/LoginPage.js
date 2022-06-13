@@ -7,29 +7,41 @@ import {
     useLogin,
     useNotify,
     useSafeSetState,
+    useConfig
 } from '@alkuip/core';
 
-const content= css`
-  width: 100%;
-  height: 100%;
-  padding: 32px;
-`;
+const content= css({
+  width: '100%',
+  height: '100%',
+  padding: '32px',
+  opacity: 0.8,
+  /*background:
+  'url(https://uac.go.ug/images/uac30-png.png)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',*/
+});
 const root = css`
  margin: 15% auto auto 30%;
 `
+const loginCss =css({
+    width: '20%',
+    padding: '16px',
+    opacity:1.0,
+    backgroundColor: '#ffffff'
+});
 const header =css({
   padding: '16px',
 });
+const signUpCss= css({
+    padding: '16px'
+})
 const footer =css({
   padding: '16px',
 });
 export const LoginPage =(props)=>{
-    const { 
-        //handleClick,
-        //handleInput,
-        standaloneApp
-    } = props;
-    const { redirectTo, className } = props;
+    const { standalone, baseUrl,dataStore,integration,defaultPage } = useConfig();
+    //Set redirectTo to default config page
+    const { redirectTo } = props;
     const [loading, setLoading] = useSafeSetState(false);
     const theme = useTheme();
     const login = useLogin();
@@ -37,8 +49,13 @@ export const LoginPage =(props)=>{
     const [formInput, setFormInput] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         {
-          j_username: '',
-          j_password: ''
+            url: baseUrl,
+            username: '',
+            password: '',
+            dsUrl: dataStore,
+            api: integration,
+            standalone: standalone,
+            defaultPage: defaultPage
         }
     );
     const handleInput = evt => {
@@ -55,24 +72,7 @@ export const LoginPage =(props)=>{
             })
             .catch(error => {
                 setLoading(false);
-                notify(
-                    typeof error === 'string'
-                        ? error
-                        : typeof error === 'undefined' || !error.message
-                        ? 'Failed login'
-                        : error.message,
-                    {
-                        type: 'warning',
-                        messageArgs: {
-                            _:
-                                typeof error === 'string'
-                                    ? error
-                                    : error && error.message
-                                    ? error.message
-                                    : undefined,
-                        },
-                    }
-                );
+                notify("Invalid username or password");
             });
     };
     return (
@@ -83,20 +83,21 @@ export const LoginPage =(props)=>{
             <Grid item>
                 <div css={ header }>
                     <Typography variant='h5' component='h3'>
-                    { standaloneApp?'Login to ALKIP Platform':''}           
+                    { standalone?'Login to Platform':''}           
                     </Typography>
                 </div>
             </Grid>
-            <Grid item container>
-                <form  autoComplete='off' noValidate >
+            <Grid item container >
+                <form  css={ loginCss } autoComplete='off' noValidate >
                     {
-                        standaloneApp?(
+                        standalone?(
                             <>
                                 <Grid item>
                                     <TextField
                                         label='UserName'
                                         id='username'
-                                        name='j_username'
+                                        required
+                                        name='username'
                                         helperText='Enter username'
                                         onChange={ handleInput }
                                     />
@@ -105,8 +106,9 @@ export const LoginPage =(props)=>{
                                     <TextField
                                         label='Password'
                                         id='password'
-                                        name='j_password'
+                                        name='password'
                                         type='password'
+                                        required
                                         helperText='Enter password'
                                         onChange={ handleInput }
                                     />
@@ -115,19 +117,34 @@ export const LoginPage =(props)=>{
                         ):null
                     }
                     <Grid item>
+                        <div css = { signUpCss }>
                         <Button
                             type='submit'
                             variant='contained'
                             color='primary'
+                            disabled = { loading }
                             onClick={ submit }
+                            
                         >
-                            { standaloneApp?'Sign In':'Proceed' }
+                            {
+                            loading ? (
+                                <CircularProgress
+                                    
+                                    size={19}
+                                    thickness={3}
+                                />
+                            ) : (
+                                standalone?'Sign In':'Proceed' 
+                            )}
+                            
                         </Button>
+                        </div>
+                       
                     </Grid>
                 </form>
             </Grid>
             <Grid item>
-                <div>
+                <div css = { signUpCss }>
                     <Link to="/signup">Create Account</Link>
                 </div>
             </Grid>
@@ -139,4 +156,8 @@ export const LoginPage =(props)=>{
         </Grid>
         </Paper>
     );
+}
+
+LoginPage.propTypes = {
+    redirectTo: PropTypes.string,
 }

@@ -1,9 +1,11 @@
 {
   "short_name": "HISEngine",
-  "version": "1.0.5-beta8",
-  "name": "eLMIS",
+  "version": "1.0.5-beta9",
+  "name": "HIS SOCI",
   "icons": {
-    "48":"static/images/order.png","16":"static/images/order.png","128":"static/images/order.png"
+    "48":"static/images/hisengine2.png",
+    "16":"static/images/hisengine2.png",
+    "128":"static/images/hisengine2.png"
   },
   "developer": {
     "url": "",

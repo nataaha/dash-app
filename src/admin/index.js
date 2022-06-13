@@ -7,6 +7,5 @@ export * from './CoreAdminUi';
 export * from './DefaultTheme';
 export * from './auth';
 export * from './layout';
-export * from './TestPage';
+export * from './SignInPage';
 export * from './AdminApp';
-export * from './AdminThemeContext';

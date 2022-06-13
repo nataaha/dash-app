@@ -6,25 +6,21 @@ import {
     NotificationContextProvider 
 } from '@alkuip/core';
 import PropTypes from 'prop-types';
-import AdminThemeContext from './AdminThemeContext';
 import AdminApp from './AdminApp';
 
 export const CoreAdminContext = (props) => {
     const {
         authProvider,
         store,
-        children,
-        apiConfig
+        children
     } = props;
     return (
         <AuthContext.Provider value={authProvider}>
             <StoreContextProvider value={store}>
                 <NotificationContextProvider>
-                    <AdminThemeContext apiConfig ={ apiConfig }>
-                        <AdminApp>
-                            {children}
-                        </AdminApp>
-                    </AdminThemeContext>
+                    <AdminApp>
+                        {children}
+                    </AdminApp>
                 </NotificationContextProvider>
             </StoreContextProvider>
         </AuthContext.Provider>

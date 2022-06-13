@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { HisOverview } from './Overview';
 import { HisOverviewStages } from './Stages';
 import { HisStagesProgression } from './StagesProgression';
+import { css } from '@emotion/react';
 // A custom hook that builds on useLocation to parse
 // the query string for you.
 const useQuery=()=>{
@@ -55,7 +56,8 @@ const LinkTab=(props)=> {
 }
 const useStyles = makeStyles(theme => ({
     root: {
-        padding: theme.spacing(3)
+        padding: theme.spacing(3),
+        backgroundColor: "#ffffff"
     },
     content: {
         marginTop: theme.spacing(2)
@@ -129,7 +131,7 @@ export const HisDocumentation = (props) => {
                 </Grid>
                 <Grid item>
                     <div className={classes.root}>
-                        <AppBar position="static">
+                        <AppBar elevation={ 0} position="static" css={css`background-color: #ffffff;`}>
                             <Tabs
                             variant="fullWidth"
                             value={value}
@@ -190,7 +192,7 @@ export const HisDocumentation = (props) => {
 }
 HisDocumentation.propTypes = {
     children: PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
+    index: PropTypes.any,
+    value: PropTypes.any,
   };
 export default HisDocumentation;

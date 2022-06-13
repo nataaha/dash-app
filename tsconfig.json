@@ -28,7 +28,7 @@
   },
   "include": [
     "src"
-  ],
+, "LoadingPage.js"  ],
   "exclude": [
     "node_modules"
   ]

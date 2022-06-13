@@ -9,12 +9,13 @@ export const CoreAdmin = (props) => {
         loading,
         loginPage,
         registerPage,
-        logoutButton,
         title,
         basename,
         ready,
         requireAuth,
-        layout
+        layout,
+        dashboard,
+        catchAll
     } = props;
     return (
         <CoreAdminContext
@@ -26,12 +27,11 @@ export const CoreAdmin = (props) => {
                 loading={loading}
                 loginPage={loginPage}
                 registerPage ={ registerPage }
-                logout={
-                    authProvider ? logoutButton : undefined
-                }
                 layout={layout}
                 requireAuth={requireAuth}
                 ready={ready}
+                dashboard={dashboard}
+                catchAll={catchAll}
             >
                 {children}
             </CoreAdminUI>

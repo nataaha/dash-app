@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Snackbar } from '@mui/material';
-
+import { css } from '@emotion/react';
 import {
     useNotificationContext,
     //undoableEventEmitter,
@@ -12,7 +12,10 @@ const defaultAnchorOrigin = {
     vertical: 'bottom',
     horizontal: 'center',
 };
-
+const root = css({
+    backgroundColor: '#ffffff',
+    color: '#00000'
+})
 /**
  * Provides a way to show a notification.
  * @see useNotify
@@ -70,13 +73,11 @@ export const Notification = (props) => {
     return (
         <Snackbar
             className={className}
+            css= { root }
             open={open}
             message={
-                messageInfo.message &&
-                translate(
-                    messageInfo.message,
-                    messageInfo.notificationOptions.messageArgs
-                )
+                messageInfo.message
+                
             }
             autoHideDuration={
                 messageInfo.notificationOptions.autoHideDuration ||

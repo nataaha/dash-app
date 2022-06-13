@@ -13,7 +13,7 @@ export const Loading = (props) => {
         <div className={className} {...rest}>
             <div>
                 <CircularProgress
-                    className={LoadingClasses.icon}
+                    
                     color="primary"
                 />
                 <h1>{loadingPrimary}</h1>

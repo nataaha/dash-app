@@ -73,7 +73,7 @@ export const Login = (props) => {
                 // not authenticated, stay on the login page
             });
     }, [checkAuth, navigate]);
-
+   
     const updateBackgroundImage = () => {
         if (!backgroundImageLoaded && containerRef.current) {
             containerRef.current.style.backgroundImage = `url(${backgroundImage})`;

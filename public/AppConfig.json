@@ -3,5 +3,7 @@
     "api":"https://datax.nataaha.com",
     "dataStore":"https://192.168.92.128/api",
     "standalone": true,
-    "defaultPage": "hissoci"
+    "defaultPage": "hissoci",
+    "loginFooter": "",
+    "loginTitle": "Login to EDW"
 }
