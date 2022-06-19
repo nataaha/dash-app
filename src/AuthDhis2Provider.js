@@ -64,9 +64,14 @@ import { Buffer } from 'buffer';
       return Promise.resolve();
     },
     checkAuth: (params) => {
-      if(sessionStorage.getItem('auth') && sessionStorage.getItem('dsApiKey')){
-        return Promise.resolve();
-      }
+const { standalone} = params;
+     	if(standalone && sessionStorage.getItem('auth') && sessionStorage.getItem('dsApiKey')){
+	    return Promise.resolve();
+
+      	}
+	if(!standalone && sessionStorage.getItem('dsApiKey')){
+	   return Promise.resolve();
+	}
       return Promise.reject({ redirectTo: '/login' });
     },
     getIdentity: () => {

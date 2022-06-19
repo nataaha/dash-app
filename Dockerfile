@@ -3,8 +3,8 @@
 FROM nginx:latest
 RUN apt-get update && apt-get install -y python3-minimal
 RUN  rm -rf /app && mkdir /app && mkdir /scripts
-COPY ./apps/dashboard/build/ /app
-COPY ./apps/dashboard/build/ /usr/share/nginx/html
+COPY ./build/ /app
+COPY ./build/ /usr/share/nginx/html
 COPY ./generate-config.sh /docker-entrypoint.d 
 COPY ./createConfig.py /scripts 
 RUN chmod +x /docker-entrypoint.d/generate-config.sh

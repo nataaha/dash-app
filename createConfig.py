@@ -10,7 +10,9 @@ def main():
             'standalone':os.getenv('ALKUIP_STANDALONE',true),
             'defaultPage':os.getenv('ALKUIP_DATASTORE','dashboard'),
             'loginFooter':os.getenv('ALKUIP_LOGIN_FOOTER',''),
-            'loginTitle':os.getenv('ALKUIP_LOGIN_TITLE','Login to ALKIP Platform')
+            'loginTitle':os.getenv('ALKUIP_LOGIN_TITLE','Login to ALKIP Platform'),
+            'bannerImage':os.getenv('ALKUIP_BANNER_IMAGE',''),
+            'logo':os.getenv('ALKUIP_LOGO','')
         }
         json.dump(configData, f, ensure_ascii=False, indent=2)
 

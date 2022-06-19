@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  getUrls,
   awaitFetcher,
   AuthProvider
 } from '@alkuip/core';
 import reportWebVitals from './reportWebVitals';
-import AppAuthConfig from './AppAuthConfig';
 import { HashRouter as Router } from "react-router-dom";
 import { AuthDhis2Provider  } from './AuthDhis2Provider';
 import { Admin, LoginPage,SignInPage ,Login3ColsPage, CustomLayout} from './admin';
@@ -22,17 +20,8 @@ export { routes } from './Routes';
  */
 const initApp = async () => {
   const appData  = await awaitFetcher(`AppConfig.json`,null);
-  //const checkUrl = getUrls(appData);
   ReactDOM.render(
     <Router>
-      {/*
-        <AuthProvider authProvider={ AuthDhis2Provider }>
-          <AppAuthConfig
-            apiConfig = {checkUrl}
-          />
-        </AuthProvider>
-        */
-      }
       {
         <Admin 
           authProvider={ AuthDhis2Provider }

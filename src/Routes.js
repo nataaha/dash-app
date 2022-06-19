@@ -103,8 +103,8 @@ export const routes = [
     title: 'Setup',
     href: '/setup/dashboard',
     icon: <PeopleIcon />,
-    isUser: true,
-    isAdmin: true
+    isUser: false,
+    isAdmin: false
   },
   {
     path: '/location/:id',
@@ -140,8 +140,8 @@ export const routes = [
     title: 'Accreditation',
     href: '/accreditation/dashboard',
     icon: <PeopleIcon />,
-    isUser: true,
-    isAdmin: true
+    isUser: false,
+    isAdmin: false
   },
   {
     path: '/users',

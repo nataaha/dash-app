@@ -62,7 +62,8 @@ export const CoreAdminRoutes = React.memo((props ) => {
                 path="/*"
                 element={
                     <div>
-                        <Layout dashboard={dashboard} title={title} resources={ resources }>
+                        <Authenticated>
+			<Layout dashboard={dashboard} title={title} resources={ resources }>
                             <Routes>
                                 { resources?.map((resource,i) => (
                                     <Route
@@ -119,6 +120,7 @@ export const CoreAdminRoutes = React.memo((props ) => {
                                 />
                             </Routes>
                         </Layout>
+			</Authenticated>
                     </div>
                 }
             />
