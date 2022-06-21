@@ -17,6 +17,7 @@ build_app:
   stage: build
   script:
     - unset CI 
+    - export NODE_OPTIONS="--max-old-space-size=8192"
     - yarn install
     - yarn build
     - chmod +x build-prod.sh
