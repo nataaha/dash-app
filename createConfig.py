@@ -7,7 +7,7 @@ def main():
             'url':os.getenv('ALKUIP_URL','../../../'),
             'api':os.getenv('ALKUIP_API','localhost'),
             'dataStore':os.getenv('ALKUIP_DATASTORE','localhost'),
-            'standalone':os.getenv('ALKUIP_STANDALONE',true),
+            'standalone':os.getenv('ALKUIP_STANDALONE',True),
             'defaultPage':os.getenv('ALKUIP_DATASTORE','dashboard'),
             'loginFooter':os.getenv('ALKUIP_LOGIN_FOOTER',''),
             'loginTitle':os.getenv('ALKUIP_LOGIN_TITLE','Login to ALKIP Platform'),

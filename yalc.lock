@@ -5,7 +5,7 @@
       "signature": "9f671ffdb061a7dfe27abc061f4fae98"
     },
     "@alkuip/forms": {
-      "signature": "835df37ec5169833a60f290ebbda687a"
+      "signature": "8b2a617fe2272996ef203c9338cb1e23"
     },
     "@alkuip/charts": {
       "signature": "6d9f0e30eb55b64b0833d4076377468b"
@@ -26,7 +26,7 @@
       "signature": "fe147e187576c99033798c512badcb6d"
     },
     "@alkuip/dhis2": {
-      "signature": "1de254a448e42f0282f4e6ab94bf9204"
+      "signature": "232352d22be820ce6a4ed23358325f6c"
     }
   }
 }
