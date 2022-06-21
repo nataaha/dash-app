@@ -140,8 +140,8 @@ export const routes = [
     title: 'Accreditation',
     href: '/accreditation/dashboard',
     icon: <PeopleIcon />,
-    isUser: false,
-    isAdmin: false
+    isUser: true,
+    isAdmin: true
   },
   {
     path: '/users',

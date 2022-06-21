@@ -18,7 +18,6 @@ build_app:
   script:
     - unset CI 
     - yarn install
-    - yarn bootstrap
     - yarn build
     - chmod +x build-prod.sh
     - cp build/manifest.json build/manifest.webapp
@@ -37,7 +36,7 @@ build_docker_image:
   dependencies:
     - build_app
   services:
-    - docker:19.03.5-dind
+    - docker:20.10.17-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
