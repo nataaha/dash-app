@@ -5,7 +5,7 @@
  if [ -d "./build" ]; then
    cd build
    cp manifest.json manifest.webapp
-   #rsync -ravz  static/images static
+   rsync -ravz  static/images static
    echo "packaging the file as zip"
    zip -r hisengine.zip *
  else

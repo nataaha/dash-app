@@ -20,9 +20,7 @@ build_app:
     - export NODE_OPTIONS="--max-old-space-size=8192"
     - yarn install
     - yarn build
-    - chmod +x build-prod.sh
     - cp build/manifest.json build/manifest.webapp
-    - bash build-prod.sh
   artifacts:
     paths:
       - dist/
