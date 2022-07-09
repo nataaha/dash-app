@@ -2,17 +2,26 @@
   "name": "dash-elmis",
   "version": "0.1.0",
   "private": true,
+  - @alkuip/charts: 1.0.18 => 1.0.19
+  - @alkuip/components: 1.0.14 => 1.0.15
+  - @alkuip/core: 1.0.12 => 1.0.13
+  - @alkuip/dhis2: 1.0.17 => 1.0.18
+  - @alkuip/forms: 1.0.100 => 1.0.101
+  - @alkuip/jsonforms: 1.0.157 => 1.0.158
+  - @alkuip/tables: 1.0.100 => 1.0.101
+  - @alkuip/visualization: 1.0.134 => 1.0.135
+ 
   "dependencies": {
-    "@alkuip/charts": "^1.0.17",
-    "@alkuip/components": "^1.0.14",
-    "@alkuip/core": "^1.0.12",
-    "@alkuip/dhis2": "^1.0.17",
-    "@alkuip/forms": "^1.0.100",
-    "@alkuip/jsonforms": "^1.0.157",
+    "@alkuip/charts": "^1.0.19",
+    "@alkuip/components": "^1.0.15",
+    "@alkuip/core": "^1.0.13",
+    "@alkuip/dhis2": "^1.0.18",
+    "@alkuip/forms": "^1.0.101",
+    "@alkuip/jsonforms": "^1.0.158",
     "@alkuip/maps": "^1.0.6",
     "@alkuip/schemas": "^1.0.2",
-    "@alkuip/tables": "^1.0.100",
-    "@alkuip/visualization": "^1.0.134",
+    "@alkuip/tables": "^1.0.101",
+    "@alkuip/visualization": "^1.0.135",
     "@date-io/date-fns": "^2.11.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
@@ -107,6 +116,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
     "semver": "^7.3.5",
+    "source-map-explorer": "^2.5.2",
     "source-map-loader": "^3.0.0",
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.1",
@@ -120,6 +130,7 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "NODE_ENV=development node scripts/start.js",
     "build": "NODE_ENV=production node scripts/build.js",
     "test": "NODE_ENV=test node scripts/test.js",

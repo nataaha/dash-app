@@ -3,7 +3,24 @@
     "api":"https://datax.nataaha.com",
     "dataStore":"https://192.168.92.128/api",
     "standalone": true,
-    "defaultPage": "hissoci",
+    "defaultPage": "accreditation",
     "loginFooter": "",
-    "loginTitle": "Login to EDW"
+    "loginTitle": "Login to EDW",
+    "apps":[
+        {
+            "appId":"accreditation",
+            "appName":"Accreditation",
+            "title": "Accreditation",
+            "path":"accreditation",
+            "homePage":"dashboard",
+            "dataStore": "alkuistore",
+            "setupStore":"alkuistore",
+            "useDefaultUiSchema": false,
+            "enableFhir": false,
+            "useDhis2Import": false,
+            "isDashboard": false,
+            "isUser": true,
+            "isAdmin": true
+        }
+    ]
 }

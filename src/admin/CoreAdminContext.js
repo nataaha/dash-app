@@ -14,6 +14,7 @@ export const CoreAdminContext = (props) => {
         store,
         children
     } = props;
+    // Dispatch here and set appName
     return (
         <AuthContext.Provider value={authProvider}>
             <StoreContextProvider value={store}>

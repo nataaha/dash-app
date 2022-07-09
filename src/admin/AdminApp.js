@@ -22,6 +22,7 @@ const AdminApp = ({ children } ) => {
   // From User, get user props and check for restricted access group and create a flag on User Context
   
   const restrictedAccess = (isGroupValid(user?.userGroups,'specialforces','code') || isGroupValid(user?.userGroups,'special_forces','code')) ;
+  // Loop through apps to know the permission type
   const checkUser = userIsSuperAdmin(user,appName); 
   const loggedInUser = {
     userDetails: user,

@@ -2,6 +2,7 @@ import React  from 'react';
 import { css } from '@emotion/react';
 import { 
     useTheme,
+    Grid
 } from '@mui/material';
 import { AppBar as DefaultAppBar } from './AppBar';
 import { Sidebar as DefaultSidebar } from './Sidebar';
@@ -23,7 +24,7 @@ export const Layout = (props) => {
     } = props;
     const theme = useTheme();
     return (
-        <div css={[root(theme),'layout', className]} {...rest}>
+        /*<div css={[root(theme),'layout', className]} {...rest}>
             <div css={ appFrame}>
                 <main css={contentWithSidebar}>
                     <div id="main-content"  css ={ [root(theme),content(theme)]}>
@@ -31,7 +32,12 @@ export const Layout = (props) => {
                     </div>
                 </main>
             </div>
-        </div>
+        </div>*/
+        <Grid container spacing={2} direction="column">
+            <Grid item>
+                { children}
+            </Grid>
+        </Grid>
     );
 };
 const root =(theme)=>css({
@@ -59,17 +65,17 @@ const content = (theme)=> css({
     [theme.breakpoints.down('md')]: {
         padding: 0,
     },
-    //width: 'calc(100% -218px)'
+    width: 'calc(100% -218px)'
 });
 const appFrame =(theme)=>css({
     display: 'flex',
     flexDirection: 'column',
     flexGrow: 1,
     [theme.breakpoints.up('xs')]: {
-        marginTop: theme.spacing(6),
+        marginTop: '5%',
     },
     [theme.breakpoints.down('sm')]: {
-        marginTop: theme.spacing(7),
+        marginTop: '5%',
     },
 });
 const contentWithSidebar = (theme)=>css({

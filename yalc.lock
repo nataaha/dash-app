@@ -1,32 +1,32 @@
 {
   "version": "v1",
   "packages": {
-    "@alkuip/components": {
-      "signature": "9f671ffdb061a7dfe27abc061f4fae98"
+    "@alkuip/dhis2": {
+      "signature": "3c4f97a17c8647b1eabc4a022c040449"
     },
     "@alkuip/forms": {
-      "signature": "8b2a617fe2272996ef203c9338cb1e23"
+      "signature": "ec0c8f9412183a2cfcc9b2023aa39bfb"
     },
     "@alkuip/charts": {
-      "signature": "6d9f0e30eb55b64b0833d4076377468b"
+      "signature": "6ebb5a9703dd97dcfdc6bb83cb9c2dbb"
     },
     "@alkuip/maps": {
       "signature": "5834ced83b0f649a06e7d62718c23727"
     },
     "@alkuip/jsonforms": {
-      "signature": "4943153c35e23dc4cf17ed92769fbba8"
+      "signature": "54645f0d564a4a0f6ccbc187b4a1618a"
     },
     "@alkuip/tables": {
       "signature": "acd44b701682c380e74b93ce2010669a"
     },
     "@alkuip/core": {
-      "signature": "d04b3906249401257e493fad4ae0ea75"
+      "signature": "2419b15af442680330b5ede07f6eeadb"
+    },
+    "@alkuip/components": {
+      "signature": "45b0de9b97a918ac70e8e4c308c36226"
     },
     "@alkuip/visualization": {
-      "signature": "fe147e187576c99033798c512badcb6d"
-    },
-    "@alkuip/dhis2": {
-      "signature": "232352d22be820ce6a4ed23358325f6c"
+      "signature": "109d9af4b002e02aa367f5f3e5eaeaa2"
     }
   }
 }
