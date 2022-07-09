@@ -21,6 +21,21 @@
             "isDashboard": false,
             "isUser": true,
             "isAdmin": true
+        },
+        {
+            "appId":"hissoci",
+            "appName":"HIS SOCI",
+            "title": "SOCI",
+            "path":"assess",
+            "homePage":"dashboard",
+            "dataStore": "alkuistore",
+            "setupStore":"alkuistore",
+            "useDefaultUiSchema": false,
+            "enableFhir": false,
+            "useDhis2Import": false,
+            "isDashboard": false,
+            "isUser": true,
+            "isAdmin": true
         }
     ]
 }
