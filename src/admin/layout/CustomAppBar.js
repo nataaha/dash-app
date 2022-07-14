@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { Logout  } from '../auth';
 import { Link } from 'react-router-dom';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-const ConfigurationMenu = React.forwardRef((props, ref) => {
+const ConfigurationMenu = forwardRef((props, ref) => {
     return (
         <MenuItem
             component={Link}

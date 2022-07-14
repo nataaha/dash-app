@@ -1,4 +1,4 @@
-import React,{ useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Avatar, useTheme } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';

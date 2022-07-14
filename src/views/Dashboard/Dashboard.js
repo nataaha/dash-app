@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useTheme } from '@mui/styles';
 import {
   GridDashboard
@@ -10,7 +10,7 @@ import { useConfig } from '@alkuip/core';
 const Dashboard = (props) => {
   const theme = useTheme();
   const { defaultPage } = useConfig();
-  const [ panels, setPanels] = React.useState([]);
+  const [ panels, setPanels] = useState([]);
 
   const getPanels =(dashItems)=>{
     setPanels(dashItems);

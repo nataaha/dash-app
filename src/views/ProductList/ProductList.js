@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { IconButton, Grid, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';

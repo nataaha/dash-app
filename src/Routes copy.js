@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Dashboard as DashboardView,
   ProductList as ProductListView,

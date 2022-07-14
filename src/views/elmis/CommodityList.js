@@ -1,4 +1,3 @@
-import React from 'react';
 import { HisViewWrapper } from '@alkuip/jsonforms';
 
 export const CommodityList = (props) => {

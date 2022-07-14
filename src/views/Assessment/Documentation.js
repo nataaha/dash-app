@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { useState, forwardRef } from 'react';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
@@ -83,7 +83,7 @@ const CustomRouterLink = forwardRef((props, ref) => (
 export const HisDocumentation = (props) => {
     const classes = useStyles();
     const query = useQuery();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
       setValue(newValue);

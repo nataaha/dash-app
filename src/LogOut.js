@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLogout } from '@alkuip/core';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';

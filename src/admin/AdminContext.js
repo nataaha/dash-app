@@ -1,5 +1,4 @@
 
-import * as React from 'react';
 import { CoreAdminContext } from './CoreAdminContext';
 import { ThemeProvider } from '@mui/material';
 //import { defaultTheme } from './DefaultTheme';

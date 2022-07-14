@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import {
     List,
     MenuItem,
@@ -24,7 +24,7 @@ export const SubMenu = (props) => {
         dense,
         isOpen
     } = props;
-    const [open,setOpen ] = React.useState(isOpen);
+    const [open,setOpen ] = useState(isOpen);
     const handleChange = _e=>{
         setOpen(!open);
         handleToggle({ type: 'UPDATE_APP_UISCHEMA', payload:{

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Layout } from './Layout';
 import { AppBar } from './AppBar';
 import { SidebarNav as Menu } from './toolbars';

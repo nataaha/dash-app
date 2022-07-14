@@ -1,8 +1,4 @@
-import React, {
-    useState, 
-    useEffect,
-    useReducer
-} from 'react';
+import { memo, useState, useEffect, useReducer } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { 
     RouteWithLayout,
@@ -25,7 +21,7 @@ import {
 import { routes as resources } from '../Routes';
 import { useAppUiSchemaReducer } from './util';
 
-export const CoreAdminRoutes = React.memo((props ) => {
+export const CoreAdminRoutes = memo((props ) => {
     const oneSecondHasPassed = useTimeout(1000);
     //useScrollToTop();
     const createPath = useCreatePath();

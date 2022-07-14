@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, useMediaQuery, useTheme } from '@mui/material';
 import lodashGet from 'lodash/get';
