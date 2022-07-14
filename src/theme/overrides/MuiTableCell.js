@@ -1,10 +1,10 @@
-import palette from '../palette';
-import typography from '../typography';
+import { palette } from '../palette';
+import { typography } from '../typography';
 
-const MuiTableCell ={
+export const MuiTableCell = theme =>({
   root: {
-    ...typography.body1,
-    borderBottom: `1px solid ${palette.divider}`
+    ...typography(theme).body1,
+    borderBottom: `1px solid ${palette(theme).divider}`
   }
-};
+});
 export default MuiTableCell;

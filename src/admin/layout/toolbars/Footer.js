@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { Typography, useTheme } from '@mui/material';
+import { Container, Typography, useTheme } from '@mui/material';
 
 const img = css`
   height:22px!important;
@@ -13,17 +13,17 @@ const license= css`
   display:inline-block;
   padding: 8px
   `;
-const Footer = props => {
-  const { className, ...rest } = props;
+export const Footer = props => {
+  const { className } = props;
   const theme = useTheme();
+  console.log("Theme:",theme)
   return (
-    <div
-      {...rest}
+    <Container
       css={css(css`
+      margin-bottom: 5%;
+      margin-left: 10%;
+      background-color: ${ theme.palette.primary.light};
       padding: ${theme.spacing(2)};
-      margin-bottom: 16px;
-      margin-top: 56px;
-      margin-left:218px;
     `, className)}
     >
       <Typography variant="body1" xmlnscc="https://creativecommons.org/ns#" xmlnsdct="https://purl.org/dc/terms/">
@@ -31,7 +31,7 @@ const Footer = props => {
           <img css={img}
             src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/><img css={img} src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/><img css={img} src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"/></a>
       </Typography>
-    </div>
+    </Container>
   );
 };
 

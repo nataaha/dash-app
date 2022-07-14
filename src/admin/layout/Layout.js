@@ -5,9 +5,13 @@ import {
     Grid
 } from '@mui/material';
 import { AppBar as DefaultAppBar } from './AppBar';
-import { Sidebar as DefaultSidebar } from './Sidebar';
-import { Menu as DefaultMenu } from './Menu';
+//import { Sidebar as DefaultSidebar } from './Sidebar';
+//import { Menu as DefaultMenu } from './Menu';
 //import { useSidebarState } from './useSidebarState';
+import { 
+    SidebarNav as DefaultMenu,
+    Sidebar as DefaultSidebar
+ } from './toolbars';
 
 export const Layout = (props) => {
     const {
@@ -19,25 +23,14 @@ export const Layout = (props) => {
         menu: Menu = DefaultMenu,
         sidebar: Sidebar = DefaultSidebar,
         title,
-        resources,
-        ...rest
+        resources
     } = props;
     const theme = useTheme();
     return (
-        /*<div css={[root(theme),'layout', className]} {...rest}>
-            <div css={ appFrame}>
-                <main css={contentWithSidebar}>
-                    <div id="main-content"  css ={ [root(theme),content(theme)]}>
-                        { children}
-                    </div>
-                </main>
-            </div>
-        </div>*/
-        <Grid container spacing={2} direction="column">
-            <Grid item>
-                { children}
-            </Grid>
-        </Grid>
+        <div>
+            { children}
+        </div>
+           
     );
 };
 const root =(theme)=>css({

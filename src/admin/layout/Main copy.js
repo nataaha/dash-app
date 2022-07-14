@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { useMediaQuery, useTheme,Grid, Container } from '@mui/material';
+import { useMediaQuery, useTheme,Grid } from '@mui/material';
 
 import { 
   Sidebar, 
@@ -22,25 +22,15 @@ const shiftContent =css({
 const menuCss = css({
   zIndex: 2
 }); 
-const content = theme => css`
+const content = css`
     height: 100%;
     width: 100%;
     overflow-x: auto;
-    background-color: ${ theme.palette.white };
   `;
-  const sidebar = theme => css`
-    height: 100%;
-    background-color: ${ theme.palette.primary.light };
-  `;
-const banner= theme =>css({
+const banner= css({
   minHeight: '48px',
-  marginBottom: '3%',
-  backgroundColor: `${ theme.palette.primary.main }`
-});
-const footer= theme =>css({
-  backgroundColor: `${ theme.palette.primary.light }`
+  marginBottom: '3%'
 })
-
 export const Main = props => {
   const { children,...rest } = props;
   const theme = useTheme();
@@ -66,11 +56,8 @@ export const Main = props => {
       justifyContent="flex-start"
       alignItems="stretch"
     >
-      <Grid item  css={ banner}>
-        <Container>
-          {/*<Topbar onSidebarOpen={handleSidebarOpen} />*/}
-          banner
-        </Container>
+      <Grid item css={ banner}>
+        <Topbar onSidebarOpen={handleSidebarOpen} />
       </Grid>
       <Grid 
         item 
@@ -80,18 +67,19 @@ export const Main = props => {
         justifyContent="flex-start"
         alignItems="stretch"
       >
-        <Grid item>
-          <Container  css={ sidebar(theme)}>
-            This is sidebar
-          </Container>          
+        <Grid item xs={12} md={2} css={ menuCss }>
+          <Sidebar
+            { ...rest }
+            onClose={handleSidebarClose}
+            open={shouldOpenSidebar}
+            variant={isDesktop ? 'persistent' : 'temporary'}
+          />
         </Grid>
-        <Grid item>
-          <Container css={ content(theme)}>
-            This is children
-          </Container>
+        <Grid item xs={12} md={10} css={content}>
+          { children }
         </Grid>
       </Grid>
-      <Grid item css={ footer(theme)}>
+      <Grid item>
           <Footer/>
       </Grid>
     </Grid>

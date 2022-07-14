@@ -5,28 +5,28 @@
       "signature": "891008e2c91d43e09bd1e250a6ffd54e"
     },
     "@alkuip/forms": {
-      "signature": "c4833267340de9436f2516cc517f2ca6"
+      "signature": "a9dd45652ff0befe3d7b7cc087c4ead0"
     },
     "@alkuip/charts": {
-      "signature": "0f02002fabf1a964a089a952491fe3a7"
+      "signature": "e563a5d02185c4262fb1daa45e8b4a03"
     },
     "@alkuip/maps": {
       "signature": "5834ced83b0f649a06e7d62718c23727"
     },
     "@alkuip/jsonforms": {
-      "signature": "7b02ff02ce80aff9fb96d5c426734029"
+      "signature": "64aa4c5d4f13c7b10839352e2988715e"
     },
     "@alkuip/tables": {
-      "signature": "643a6605330c862cdcbd30661050cb9c"
+      "signature": "6c3b5674a2ca6c43f460e832346dc074"
     },
     "@alkuip/core": {
       "signature": "dc8eb736c77a2408399641a04a272130"
     },
     "@alkuip/components": {
-      "signature": "1ce1a6f821a88fc68bc44c692b0e21c9"
+      "signature": "2f5335ab836f9502fa9c50c580976184"
     },
     "@alkuip/visualization": {
-      "signature": "25f53c76cc8e9248f50acfa4169aa08c"
+      "signature": "3f963521bffd0e5a7bb563fc79efdada"
     }
   }
 }

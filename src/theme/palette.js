@@ -1,17 +1,15 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { colors } from '@mui/material';
 
 const white = '#FFFFFF';
 const black = '#000000';
-
-const palette = {
+const base = {
   black,
   white,
   primary: {
     contrastText: white,
-    dark: colors.indigo[900],
-    main: colors.indigo[500],
-    light: colors.indigo[100]
+    dark: '#006d77',
+    main: '#83c5be',
+    light: '#edf6f9'
   },
   secondary: {
     contrastText: white,
@@ -49,11 +47,25 @@ const palette = {
     link: colors.blue[600]
   },
   background: {
-    default: '#F4F6F8',
+    default: '#edf6f9',//#f4f6f8
     paper: white
   },
   icon: colors.blueGrey[600],
   divider: colors.grey[200]
 };
+export const palette = theme =>{ 
+  if(theme === 'dark'){
+    return {
+      ...base,
+      primary: {
+        contrastText: white,
+        dark: '#006d77',
+        main: '#83c5be',
+        light: '#edf6f9'
+      }
+    }
+  }
+  return base;
+}
 
 export default palette;

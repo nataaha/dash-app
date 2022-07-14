@@ -5,4 +5,5 @@ export * from './Notification';
 export * from './Layout';
 export * from './CustomLayout';
 export * from './AppBar';
-export * from './Menu';
+export * from './Main';
+export * from './toolbars';

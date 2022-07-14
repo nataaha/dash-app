@@ -25,7 +25,7 @@ const initApp = async () => {
       {
         <Admin 
           authProvider={ AuthDhis2Provider }
-          loginPage={<Login3ColsPage/> } 
+          loginPage={<LoginPage/> } 
           registerPage={<SignInPage/> }
           apiConfig = { appData }
           //layout={CustomLayout}

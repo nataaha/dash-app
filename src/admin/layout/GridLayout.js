@@ -5,10 +5,13 @@ import {
     useMediaQuery 
 } from '@mui/material';
 import { AppBar as DefaultAppBar } from './AppBar';
-import { Sidebar as DefaultSidebar } from './Sidebar';
-import { Menu as DefaultMenu } from './Menu';
+
 //import { useSidebarState } from './useSidebarState';
-import Footer from './Footer';
+import { 
+    Footer,
+    SidebarNav as DefaultMenu,
+    Sidebar as DefaultSidebar
+ } from './toolbars';
 
 export const GridLayout = (props) => {
     const {

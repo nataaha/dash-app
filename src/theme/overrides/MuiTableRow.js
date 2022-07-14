@@ -1,16 +1,15 @@
-import palette from '../palette';
+import { palette }from '../palette';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-const MuiTableRow = {
+export const MuiTableRow = theme => ({
   root: {
     '&$selected': {
-      backgroundColor: palette.background.default
+      backgroundColor: palette(thee).background.default
     },
     '&$hover': {
       '&:hover': {
-        backgroundColor: palette.background.default
+        backgroundColor: palette(theme).background.default
       }
     }
   }
-};
+});
 export default MuiTableRow;

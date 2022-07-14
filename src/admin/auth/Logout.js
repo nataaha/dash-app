@@ -28,6 +28,8 @@ export const Logout = forwardRef((props, ref)=> {
         <MenuItem
             onClick={handleClick}
             ref={ref}
+            // @ts-ignore
+            component={isXSmall ? 'span' : 'li'}
             {...rest}
         >
             <ListItemText>Logout</ListItemText>

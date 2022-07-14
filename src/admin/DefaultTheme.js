@@ -1,7 +1,7 @@
 export const defaultTheme = {
     palette: {
         background: {
-            default: '#fafafb',
+            default: '#fafafb',//#f4f9ff
         },
         secondary: {
             light: '#6ec6ff',
@@ -16,7 +16,7 @@ export const defaultTheme = {
         },
     },
     sidebar: {
-        width: 240,
+        width: 200,
         closedWidth: 50,
     },
     components: {

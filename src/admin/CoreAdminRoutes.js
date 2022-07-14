@@ -6,9 +6,12 @@ import React, {
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { 
     RouteWithLayout,
-    Main as MainLayout, 
     Minimal as MinimalLayout
   } from '@alkuip/components';
+import {
+    Main as MainLayout
+} from './layout';
+
 import { 
     WithPermissions, 
     useCheckAuth,
