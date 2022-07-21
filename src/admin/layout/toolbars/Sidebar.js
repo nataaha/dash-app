@@ -7,7 +7,7 @@ const paper = theme =>css({
   width: '240px',
   [`${ theme.breakpoints.up('lg')}`]: {
     marginTop: '64px',
-    height: 'calc(100% - 64px)'
+    height: 'calc(80% - 64px)'
   }
 });
 export const Sidebar = props => {
@@ -26,7 +26,6 @@ export const Sidebar = props => {
         container
         direction = "column"
         css={[css`
-          background-color: ${ theme.palette.white};
           margin-top: 64px;
           padding: ${theme.spacing(2)};
           max-width: 200px;

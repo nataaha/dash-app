@@ -9,9 +9,10 @@ import InputIcon from '@mui/icons-material/Input';
 import { useConfig } from '@alkuip/core';
 import { Logout } from '../../auth/Logout';
   
-const root = css`
+const root = theme => css`
     box-shadow: none;
-    background-color: #ffffff;
+    max-height: '62px';
+    background-color: ${ theme.palette.primary.main };
   `;
 const logoCss = css`
     max-width: 300px;
@@ -42,7 +43,7 @@ export const Topbar = props => {
   return (
     <AppBar
       {...rest}
-      css={ bannerImage?[root,banner(bannerImage),className]:[root, className]}
+      css={ bannerImage?[root(theme),banner(bannerImage),className]:[root(theme), className]}
     >
       <Toolbar>
         {
@@ -76,12 +77,12 @@ export const Topbar = props => {
           </a>
           <IconButton css={ signOutButton(theme) } onClick={ onSidebarOpen } size="large">
             <MenuIcon />
-            {
+          </IconButton>
+          {
               standalone?(
                 <Logout/>
               ):null
-            }
-          </IconButton>
+          }
       </Toolbar>
       <Divider css={divider}/>
     </AppBar>

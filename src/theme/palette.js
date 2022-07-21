@@ -47,7 +47,7 @@ const base = {
     link: colors.blue[600]
   },
   background: {
-    default: '#edf6f9',//#f4f6f8
+    default: white,//#f4f6f8
     paper: white
   },
   icon: colors.blueGrey[600],

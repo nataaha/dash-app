@@ -8,10 +8,10 @@ import { AppBar as DefaultAppBar } from './AppBar';
 //import { Menu as DefaultMenu } from './Menu';
 //import { useSidebarState } from './useSidebarState';
 import { 
+    Footer as DefaultFooter,
     SidebarNav as DefaultMenu,
     Sidebar as DefaultSidebar
  } from './toolbars';
-
 export const Layout = (props) => {
     const {
         appBar: AppBar = DefaultAppBar,
@@ -21,17 +21,20 @@ export const Layout = (props) => {
         error,
         menu: Menu = DefaultMenu,
         sidebar: Sidebar = DefaultSidebar,
-        title,
-        resources
+        footer: Footer = DefaultFooter
     } = props;
     const theme = useTheme();
     return (
-        <div>
+        <div css={ main(theme)}>
             { children}
         </div>
            
     );
 };
+const main = theme =>css({
+    minHeight: '100%',
+    backgroundColor: theme.palette.background.default
+});
 const root =(theme)=>css({
     display: 'flex',
     flexDirection: 'column',
