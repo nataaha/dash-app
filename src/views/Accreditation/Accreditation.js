@@ -5,7 +5,6 @@ export const Accreditation = (props) => {
       <HisViewWrapper 
         {...props}
         footer= {``}
-        appName = { `accreditation`}
         appDataStore ={ `alkuistore`}
         appSetupStore ={ `alkuistore`}
         isDefaultUiSchema = { false }  

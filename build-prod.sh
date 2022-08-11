@@ -7,7 +7,7 @@
    cp manifest.json manifest.webapp
    rsync -ravz  static/images static
    echo "packaging the file as zip"
-   zip -r hisengine.zip *
+   zip -x *.js.map -r hisengine.zip * 
  else
    echo "Build failed"
  fi

@@ -46,7 +46,7 @@ export const CoreAdminRoutes = memo((props ) => {
     const [uiSchema,setUiSchema] = useState([]);
    
     const { data:schemas } = useFetchApi(uiApp?.appId?`${dataStore}/schemas?type=${uiApp?.appId}`:null,headers,false);
-    const { data:uischemas } = useFetchApi(uiApp?.appId?`${dataStore}/uischemas?appName=${uiApp?.appId}`:null,headers,false);
+    const { data:uischemas } = useFetchApi(uiApp?.appId?`${dataStore}/uischemas?appId=${uiApp?.appId}`:null,headers,false);
     useEffect(()=>{
         if(schemas){
             setSchema(schemas?.data);
@@ -91,7 +91,8 @@ export const CoreAdminRoutes = memo((props ) => {
                         <UiMenuSchemaContext.Provider value ={
                             {
                                 uischemas: uiSchema,
-                                schemas: schema
+                                schemas: schema,
+                                app: state?.app
                             }
                         }>
                             <Layout dashboard={dashboard} title={title} resources={ resources }>

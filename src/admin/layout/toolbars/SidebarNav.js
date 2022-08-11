@@ -73,22 +73,16 @@ export const SidebarNav = props => {
         {
         menuPageLinks?.map((page,index) => (
             <SubMenu
-              css={className}
+              css={[item,className]}
               name= { page.title??page.appName }
               page = { page }
               isOpen ={ Array.isArray(menuPageLinks) && (size(menuPageLinks) === 1) }
               handleToggle = { dispatch }
               key={ `hidden-admin-${page.title}-${index}`}
             >
-              <ListItem
-                css={ item }
-                disableGutters
-                key={ `page-admin-${page.title}-${index}`}
-              >
-                <MenuLink
-                  page = { page }
-                />
-              </ListItem>
+              <MenuLink
+                page = { page }
+              />
             </SubMenu>
         ))}
       </List>

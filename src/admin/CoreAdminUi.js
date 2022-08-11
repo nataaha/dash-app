@@ -1,4 +1,4 @@
-import { useEffect, isValidElement, createElement } from 'react';
+import { isValidElement, createElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { CoreAdminRoutes } from './CoreAdminRoutes';

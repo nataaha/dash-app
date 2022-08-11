@@ -5,6 +5,7 @@ import {
     ListItemIcon,
     Typography,
     Collapse,
+    ListItem,
     Tooltip,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -32,14 +33,14 @@ export const SubMenu = (props) => {
         }}) 
     }
     const header = name?(
-        <MenuItem dense={dense} onClick={handleChange}>
+        <ListItem dense={dense} onClick={handleChange}>
             <ListItemIcon sx={{ minWidth: 5 }}>
                 {open ? <ExpandMoreIcon /> : <ExpandLessIcon/>}
             </ListItemIcon>
             <Typography variant="inherit" color="textSecondary">
                 {name }
             </Typography>
-        </MenuItem>
+        </ListItem>
     ):null;
 
     return (
