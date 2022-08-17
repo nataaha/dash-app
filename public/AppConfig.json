@@ -6,6 +6,7 @@
     "defaultPage": "accreditation",
     "loginFooter": "",
     "loginTitle": "Login to EDW",
+    "landingPage":"THREE_COLUMNS",
     "apps":[
         {
             "appId":"accreditation",

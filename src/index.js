@@ -6,7 +6,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from "react-router-dom";
 import { AuthDhis2Provider  } from './AuthDhis2Provider';
-import { Admin, LoginPage,SignInPage ,Login3ColsPage, CustomLayout} from './admin';
+import { Admin, LoginPage,SignInPage ,Login3ColsPage } from './admin';
 
 /***
  * Exports 
@@ -19,12 +19,15 @@ export { routes } from './Routes';
  */
 const initApp = async () => {
   const appData  = await awaitFetcher(`AppConfig.json`,null);
+
   ReactDOM.render(
     <Router>
       {
         <Admin 
           authProvider={ AuthDhis2Provider }
-          loginPage={<LoginPage/> } 
+          loginPage={ 
+            (appData?.landingPage ==='THREE_COLUMNS')?<Login3ColsPage/>:<LoginPage/> 
+          } 
           registerPage={<SignInPage/> }
           apiConfig = { appData }
           //layout={CustomLayout}

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { format } from 'date-fns';
 import { makeStyles } from '@mui/styles';
 import {
   Card,
@@ -66,7 +65,7 @@ const AccountProfile = props => {
               color="textSecondary"
               variant="body1"
             >
-              {format('hh:mm A')} ({user.timezone})
+              ({user.timezone})
             </Typography>
           </div>
           <Avatar

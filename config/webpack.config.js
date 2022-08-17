@@ -294,12 +294,13 @@ module.exports = function (webpackEnv) {
     resolve: {
       // Added to support @react-pdf/renderer
       fallback: {
+        fs: false,
         process: require.resolve("process/browser"),
         zlib: require.resolve("browserify-zlib"),
         stream: require.resolve("stream-browserify"),
         util: require.resolve("util"),
         buffer: require.resolve("buffer"),
-        assert: require.resolve("assert"),
+        assert: require.resolve("assert")
       },
       // This allows you to set a fallback for where webpack should look for modules.
       // We placed these paths second because we want `node_modules` to "win"
