@@ -13,6 +13,7 @@ def main():
             'loginTitle':os.getenv('ALKUIP_LOGIN_TITLE','Login to ALKIP Platform'),
             'bannerImage':os.getenv('ALKUIP_BANNER_IMAGE',''),
             'logo':os.getenv('ALKUIP_LOGO',''),
+            'landingPage':os.getenv('ALKUIP_LANDING_PAGE',''),
             'apps':json.loads(os.getenv('ALKUIP_APPS',"[]")),
         }
         json.dump(configData, f, ensure_ascii=False, indent=2)
