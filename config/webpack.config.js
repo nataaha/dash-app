@@ -294,7 +294,6 @@ module.exports = function (webpackEnv) {
     resolve: {
       // Added to support @react-pdf/renderer
       fallback: {
-        fs: false,
         process: require.resolve("process/browser"),
         zlib: require.resolve("browserify-zlib"),
         stream: require.resolve("stream-browserify"),
