@@ -4,6 +4,7 @@ import MuiPaper from './MuiPaper';
 import { MuiTableCell}  from './MuiTableCell';
 import MuiTableHead from './MuiTableHead';
 import MuiTypography from './MuiTypography';
+import  { MuiInput } from './MuiInput';
 
 const LayoutTheme = (theme='dark')=>({
   components:{
@@ -12,7 +13,8 @@ const LayoutTheme = (theme='dark')=>({
     MuiPaper,
     MuiTableCell :MuiTableCell(theme),
     MuiTableHead,
-    MuiTypography
+    MuiTypography,
+    MuiInput :MuiInput(theme),
   }
 });
 export default LayoutTheme;

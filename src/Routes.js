@@ -13,6 +13,10 @@ export const routes = [
         component: AccreditationView
       },
       {
+        path: '/:appName/:id',
+        component: AccreditationView
+      },
+      {
         path: '/:appName/*',
         component: AccreditationView
       }

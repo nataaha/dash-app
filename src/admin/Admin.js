@@ -12,7 +12,7 @@ export const Admin = (props) => {
         loginPage,
         registerPage,
         logoutButton,
-        title = 'ALKIP Platform Admin',
+        title = '',
         store,
         theme,
         basename,

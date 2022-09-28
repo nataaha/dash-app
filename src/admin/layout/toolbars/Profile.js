@@ -9,6 +9,7 @@ const root = css`
     flex-direction: column;
     align-items: center;
     min-height: fit-content;
+    max-width: '180px';
   `;
 const avatar = css({
     width: 60,
@@ -37,6 +38,8 @@ export const Profile = props => {
       />
       <Typography
         css={css`
+        max-width: 175px;
+        word-break: break-word;
         margin-top: ${ theme.spacing(1) };
       `}
         variant="h4"

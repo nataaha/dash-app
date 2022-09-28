@@ -1,27 +1,24 @@
-import { makeStyles } from '@mui/styles';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, useTheme } from '@mui/material';
+import { css } from '@emotion/react';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+  const root = theme =>css({
     padding: theme.spacing(4)
-  },
-  content: {
+  });
+  const content= css({
     paddingTop: 150,
     textAlign: 'center'
-  },
-  image: {
+  });
+  const image = css({
     marginTop: 50,
     display: 'inline-block',
     maxWidth: '100%',
     width: 560
-  }
-}));
+  });
 
 const NotFound = () => {
-  const classes = useStyles();
-
+  const theme = useTheme();
   return (
-    <div className={classes.root}>
+    <div css={root(theme)}>
       <Grid
         container
         justifyContent="center"
@@ -32,7 +29,7 @@ const NotFound = () => {
           lg={6}
           xs={12}
         >
-          <div className={classes.content}>
+          <div css={content}>
             <Typography variant="h1">
               404: The page you are looking for isn’t here
             </Typography>
@@ -42,7 +39,7 @@ const NotFound = () => {
             </Typography>
             <img
               alt="Under development"
-              className={classes.image}
+              css={image}
               src="/images/undraw_page_not_found_su7k.svg"
             />
           </div>

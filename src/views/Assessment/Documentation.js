@@ -1,6 +1,5 @@
 import { useState, forwardRef } from 'react';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
-import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
@@ -14,6 +13,8 @@ import { HisOverview } from './Overview';
 import { HisOverviewStages } from './Stages';
 import { HisStagesProgression } from './StagesProgression';
 import { css } from '@emotion/react';
+import { useTheme } from '@mui/material';
+
 // A custom hook that builds on useLocation to parse
 // the query string for you.
 const useQuery=()=>{
@@ -54,23 +55,15 @@ const LinkTab=(props)=> {
     />
   );
 }
-const useStyles = makeStyles(theme => ({
-    root: {
+    const root =theme=>css({
         padding: theme.spacing(3),
         backgroundColor: "#ffffff"
-    },
-    content: {
-        marginTop: theme.spacing(2)
-    },
-    continue:{
-        fontSize: 24
-    },
-    image:{
+    });
+    const image=css({
         marginTop:12,
         maxWidth:'179px',
         maxHeight:'150px'
-    }
-}));
+    });
 const CustomRouterLink = forwardRef((props, ref) => (
     <div
       ref={ref}
@@ -81,10 +74,9 @@ const CustomRouterLink = forwardRef((props, ref) => (
   ));
 
 export const HisDocumentation = (props) => {
-    const classes = useStyles();
     const query = useQuery();
     const [value, setValue] = useState(0);
-
+    const theme = useTheme();
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
@@ -99,8 +91,8 @@ export const HisDocumentation = (props) => {
                         xl={3}
                         xs={12}
                     >
-                        <div className= { classes.image }>
-                            <img className= { classes.image }
+                        <div css= { image }>
+                            <img css= { image }
                                 alt="HIS Stages ToolKit"
                                 src="static/images/logos/his_stages_logo.png"
                             />
@@ -130,7 +122,7 @@ export const HisDocumentation = (props) => {
                     <a href="https://www.measureevaluation.org/his-strengthening-resource-center/his-stages-of-continuous-improvement-toolkit">https://www.measureevaluation.org/his-strengthening-resource-center/his-stages-of-continuous-improvement-toolkit</a>
                 </Grid>
                 <Grid item>
-                    <div className={classes.root}>
+                    <div css={root(theme)}>
                         <AppBar elevation={ 0} position="static" css={css`background-color: #ffffff;`}>
                             <Tabs
                             variant="fullWidth"

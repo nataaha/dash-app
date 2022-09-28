@@ -1,29 +1,22 @@
-import { memo, useState, useEffect, useReducer } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { 
-    RouteWithLayout,
-    Minimal as MinimalLayout
-  } from '@alkuip/components';
-import {
-    Main as MainLayout
-} from './layout';
-
 import { 
     WithPermissions, 
     useCheckAuth,
     useCreatePath,
-    useTimeout,
-    Authenticated,
-    useFetchApi,
-    useConfig,
-    UiMenuSchemaContext
+    useTimeout
 } from '@alkuip/core';
 import { routes as resources } from '../Routes';
-import { useAppUiSchemaReducer } from './util';
+import {
+    Dashboard as DashboardView,
+    NotFound as NotFoundView,
+    Accreditation as AccreditationView,
+  } from '../views';
+import { useScrollToTop } from './routing';
 
 export const CoreAdminRoutes = memo((props ) => {
     const oneSecondHasPassed = useTimeout(1000);
-    //useScrollToTop();
+    useScrollToTop();
     const createPath = useCreatePath();
     const {
         layout: Layout,
@@ -33,29 +26,9 @@ export const CoreAdminRoutes = memo((props ) => {
         requireAuth,
         title,
     } = props;
-    const { dataStore,headers,apps } = useConfig();
-    const [state,dispatch] = useReducer(useAppUiSchemaReducer,{
-        app:apps?.[0]??{}
-    });
-    const { app } = state;
+
     const [canRender, setCanRender] = useState(!requireAuth);
     const checkAuth = useCheckAuth();
-
-    const [schema,setSchema] = useState(undefined);
-    const [uiApp,setUiApp] = useState(undefined);
-    const [uiSchema,setUiSchema] = useState([]);
-   
-    const { data:schemas } = useFetchApi(uiApp?.appId?`${dataStore}/schemas?type=${uiApp?.appId}`:null,headers,false);
-    const { data:uischemas } = useFetchApi(uiApp?.appId?`${dataStore}/uischemas?appId=${uiApp?.appId}`:null,headers,false);
-    useEffect(()=>{
-        if(schemas){
-            setSchema(schemas?.data);
-        }
-        if(uischemas){
-            setUiSchema(uischemas?.data);
-        }
-    },[uischemas,schemas])
-
     useEffect(() => {
         if (requireAuth) {
             checkAuth()
@@ -65,9 +38,7 @@ export const CoreAdminRoutes = memo((props ) => {
                 .catch(() => {});
         }
     }, [checkAuth, requireAuth]);
-    useEffect(()=>{
-        setUiApp(app);
-    },[app]);
+
     if (!canRender) {
         return (
             <Routes>
@@ -81,88 +52,58 @@ export const CoreAdminRoutes = memo((props ) => {
     }
     return (
         <Routes>
-            {/*
-                Render the custom routes that were outside the child function.
-            */}
-            <Route
-                path="/*"
-                element={
-                    <Authenticated>
-                        <UiMenuSchemaContext.Provider value ={
+            {
+                /*
+                    Render the custom routes that were outside the child function.
+                */
+            }
+            { 
+                <Route
+                    path="/*"
+                    element={
+                        <Routes>
                             {
-                                uischemas: uiSchema,
-                                schemas: schema,
-                                app: state?.app
-                            }
-                        }>
-                            <Layout dashboard={dashboard} title={title} resources={ resources }>
-                                <Routes>
-                                    { resources?.[0]?.children?.map((resource,i) => (
-                                        <Route
-                                        key={`route-${resource.path}-${i}`}
-                                            path={`${resource.path}`}
-                                            element={
-                                                resource.layout === 'minimal'?
-                                                (
-                                                    
-                                                        <MinimalLayout 
-                                                            
-                                                            routes={ resources }
-                                                            dispatch={ dispatch }
-                                                        >
-                                                            <RouteWithLayout
-                                                                route = { resource }
-                                                                component = { resource?.component??(<div></div>) }
-                                                            />
-                                                        </MinimalLayout>
-                                                
-                                                ):
-                                                (     
-                                                                                        
-                                                        <MainLayout 
-                                                            routes={ resources }
-                                                            dispatch = { dispatch } 
-                                                        >
-                                                            <RouteWithLayout
-                                                                route = { resource }
-                                                                component = { resource?.component??(<div></div>) }
-                                                            />
-                                                        </MainLayout>
-                                                    
-                                            
-                                                )
-                                            }
-                                        />
-                                    ))}
+                                resources?.[0]?.children?.map((resource,i) => (
                                     <Route
-                                        path="/"
+                                        path={ resource?.path }
+                                        key={ `path-app-${i}` }
                                         element={
-                                            dashboard ? (
-                                                <WithPermissions
-                                                    authParams={defaultAuthParams}
-                                                    component={dashboard}
-                                                />
-                                            ) : resources.length > 0 ? (
-                                                <Navigate
-                                                    to={
-                                                        createPath({
-                                                        resource: '/dashboard',
-                                                        type: 'list',
-                                                    })}
-                                                />
-                                            ) : null
+                                            <AccreditationView 
+                                                { ...props }
+                                                resources={ resources } 
+                                                resource={ resource }
+                                            />
                                         }
                                     />
-                                    <Route
-                                        path="*"
-                                        element={<CatchAll title={title} />}
-                                    />
-                                </Routes>
-                            </Layout>
-                        </UiMenuSchemaContext.Provider>
-                    </Authenticated>
-                }
-            />
+                                ))
+                            }
+                            <Route
+                                path="/"
+                                element={
+                                    dashboard ? (
+                                        <WithPermissions
+                                            authParams={defaultAuthParams}
+                                            component={dashboard}
+                                        />
+                                    ) : resources.length > 0 ? (
+                                        <Navigate
+                                            to={
+                                                createPath({
+                                                resource: '/dashboard',
+                                                type: 'list',
+                                            })}
+                                        />
+                                    ) : null
+                                }
+                            />
+                            <Route
+                                path="*"
+                                element={<CatchAll title={title} />}
+                            /> 
+                        </Routes>
+                    }
+                />
+            }          
         </Routes>
     );
 });

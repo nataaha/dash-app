@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import validate from 'validate.js';
-import { makeStyles } from '@mui/styles';
+import { css } from '@emotion/react';
 import {
   Grid,
   Button,
@@ -11,7 +11,8 @@ import {
   Link,
   FormHelperText,
   Checkbox,
-  Typography
+  Typography,
+  useTheme
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {  useConfig } from '@alkuip/core';
@@ -45,74 +46,40 @@ const schema = {
   }
 };
 
-const useStyles = makeStyles(theme => ({
-  root: {
+  const root=theme=>css({
     backgroundColor: theme.palette.background.default,
     height: '100%'
-  },
-  grid: {
+  });
+  const grid=css({
     height: '100%'
-  },
-  login:{
+  });
+  const login=css({
     marginTop: '160px'
-  },
-  quoteContainer: {
-    [theme.breakpoints.down('xl')]: {
-      display: 'none'
-    }
-  },
-  quote: {
-    backgroundColor: theme.palette.neutral,
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundImage: 'url(/images/auth.jpg)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-  },
-  quoteInner: {
-    textAlign: 'center',
-    flexBasis: '600px'
-  },
-  quoteText: {
-    color: theme.palette.white,
-    fontWeight: 300
-  },
-  name: {
-    marginTop: theme.spacing(3),
-    color: theme.palette.white
-  },
-  bio: {
-    color: theme.palette.white
-  },
-  contentContainer: {},
-  content: {
+  });
+
+  const content=css({
     height: '100%',
     display: 'flex',
     flexDirection: 'column'
-  },
-  contentHeader: {
+  });
+  const contentHeader=theme=>css({
     display: 'flex',
     alignItems: 'center',
     paddingTop: theme.spacing(5),
     paddingBototm: theme.spacing(2),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2)
-  },
-  logoImage: {
-    marginLeft: theme.spacing(4)
-  },
-  contentBody: {
+  });
+
+  const contentBody=theme=>css({
     flexGrow: 1,
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.down('xl')]: {
       justifyContent: 'center'
     }
-  },
-  form: {
+  });
+  const form=theme=>css({
     paddingLeft: 100,
     paddingRight: 100,
     paddingBottom: 125,
@@ -121,25 +88,24 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2)
     }
-  },
-  title: {
+  });
+  const titleCss=theme=>css({
     marginTop: theme.spacing(3)
-  },
-  textField: {
+  });
+  const textField=theme=>css({
     marginTop: theme.spacing(2)
-  },
-  policy: {
+  });
+  const policy=theme=>css({
     marginTop: theme.spacing(1),
     display: 'flex',
     alignItems: 'center'
-  },
-  policyCheckbox: {
+  });
+  const policyCheckbox=theme=>css({
     marginLeft: '-14px'
-  },
-  signUpButton: {
+  });
+  const signUpButton=theme=>css({
     margin: theme.spacing(2, 0)
-  }
-}));
+  });
 
 const SignUp = props => {
   const { title } = props;
@@ -147,7 +113,7 @@ const SignUp = props => {
   const navigate = useNavigate();
   const [isSent,setIsSent] = useState(false);
 
-  const classes = useStyles();
+  const theme= useTheme();
   const [formState, setFormState] = useState({
     isValid: false,
     values: {},
@@ -200,33 +166,33 @@ const SignUp = props => {
     formState.touched[field] && formState.errors[field] ? true : false;
 
   return (
-    <div className={classes.root}>
+    <div css={root(theme)}>
       <Grid
-        className={classes.grid}
+        css={grid}
         container
       >
         <Grid
-          className={classes.content}
+          css={content}
           item
           lg={7}
           xs={12}
         >
-          <div className={classes.content}>
-            <div className={classes.contentHeader}>
+          <div css={content}>
+            <div css={contentHeader(theme)}>
               <IconButton onClick={handleBack} size="large">
                 <ArrowBackIcon />
               </IconButton>
             </div>
-            <div className={classes.contentBody}> 
+            <div css={contentBody(theme)}> 
               {
                 !isSent?
                   (
                   <form
-                    className={classes.form}
+                    css={form(theme)}
                     onSubmit={handleSignUp}
                   >
                     <Typography
-                      className={classes.title}
+                      css={titleCss(theme)}
                       variant="h2"
                     >
                       Create new account
@@ -238,7 +204,7 @@ const SignUp = props => {
                       Use your email to create new account
                     </Typography>
                     <TextField
-                      className={classes.textField}
+                      css={textField(theme)}
                       error={hasError('firstName')}
                       fullWidth
                       helperText={
@@ -252,7 +218,7 @@ const SignUp = props => {
                       variant="outlined"
                     />
                     <TextField
-                      className={classes.textField}
+                      css={textField(theme)}
                       error={hasError('surname')}
                       fullWidth
                       helperText={
@@ -266,7 +232,7 @@ const SignUp = props => {
                       variant="outlined"
                     />
                     <TextField
-                      className={classes.textField}
+                      css={textField(theme)}
                       error={hasError('email')}
                       fullWidth
                       helperText={
@@ -279,16 +245,16 @@ const SignUp = props => {
                       value={formState.values.email || ''}
                       variant="outlined"
                     />
-                    <div className={classes.policy}>
+                    <div css={policy(theme)}>
                       <Checkbox
                         checked={formState.values.policy || false}
-                        className={classes.policyCheckbox}
+                        css={policyCheckbox(theme)}
                         color="primary"
                         name="policy"
                         onChange={handleChange}
                       />
                       <Typography
-                        className={classes.policyText}
+                        css={policy(theme)}
                         color="textSecondary"
                         variant="body1"
                       >
@@ -310,7 +276,7 @@ const SignUp = props => {
                       </FormHelperText>
                     )}
                     <Button
-                      className={classes.signUpButton}
+                      css={signUpButton(theme)}
                       color="primary"
                       disabled={!formState.isValid}
                       fullWidth
@@ -342,7 +308,7 @@ const SignUp = props => {
           item 
           lg={3}
           xs={12}
-          className = { classes.login }
+          css = { login }
         >
           <Typography
               color="textSecondary"

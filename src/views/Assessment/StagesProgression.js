@@ -1,21 +1,17 @@
-import { makeStyles } from '@mui/styles';
+import { css } from '@emotion/react';
 import {
     Grid,
+    useTheme
 } from '@mui/material';
 
-const useStyles = makeStyles(theme => ({
-    root: {
+    const root =theme =>css({
         padding: theme.spacing(2)
-    },
-    content: {
-        marginTop: theme.spacing(2)
-    }
-}));
+    });
 
 export const HisStagesProgression = (props) => {
-    const classes = useStyles();
+    const theme = useTheme();
     return (
-        <div className={ classes.root}>
+        <div css={ root(theme)}>
             <Grid container spacing={2} direction="column" justifyContent="space-around">
                 <Grid item>
                     <div>

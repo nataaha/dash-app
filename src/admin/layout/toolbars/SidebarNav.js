@@ -2,10 +2,9 @@ import { forwardRef } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { List, ListItem,colors, useTheme } from '@mui/material';
+import { List } from '@mui/material';
 import { 
   useLoginUser, 
-  getDifference,
   useConfig
 } from '@alkuip/core';
 import SubMenu from './SubMenu';
@@ -19,7 +18,7 @@ const  item = css`
     padding-top: 0;
     padding-bottom: 0;
   `;
-
+/*
 const icon = theme => css`
     color: ${ theme.palette.icon};
     width: 24;
@@ -35,7 +34,7 @@ const active =theme =>css`
       color: ${ theme.palette.primary.main};
     };
   `;
-
+*/
 export const CustomRouterLink = forwardRef((props, ref) =>{
   return(
     <div
@@ -51,7 +50,6 @@ export const SidebarNav = props => {
   const { className,dispatch, ...rest } = props;
   const { permissions } = useLoginUser();
   const { baseUrl, apps } = useConfig();
-  const theme = useTheme();
   const isPageAdmin = (permissions.isAppAdmin || permissions.isSuperAdmin);
   const pages = concat(apps,[{
     title: 'Exit',
@@ -63,7 +61,6 @@ export const SidebarNav = props => {
   }]);
   const adminPages = pages?.filter((ad)=>ad?.isAdmin && !ad?.isUser && isPageAdmin);
   const userPages = pages?.filter((upg)=>upg?.isUser);
-  const defaultPages = getDifference(userPages,adminPages);
   const menuPageLinks = adminPages.concat(userPages).filter(Boolean);
   return (
       <List
@@ -74,11 +71,11 @@ export const SidebarNav = props => {
         menuPageLinks?.map((page,index) => (
             <SubMenu
               css={[item,className]}
-              name= { page.title??page.appName }
+              name= { page?.title??page?.appName }
               page = { page }
               isOpen ={ Array.isArray(menuPageLinks) && (size(menuPageLinks) === 1) }
               handleToggle = { dispatch }
-              key={ `hidden-admin-${page.title}-${index}`}
+              key={ `hidden-admin-${page?.title}-${index}`}
             >
               <MenuLink
                 page = { page }

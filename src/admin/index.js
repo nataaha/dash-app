@@ -10,3 +10,4 @@ export * from './layout';
 export * from './SignInPage';
 export * from './AdminApp';
 export * from './util';
+export * from './routing';

@@ -1,7 +1,7 @@
 {
   "short_name": "HISEngine",
-  "version": "1.0.5-beta9",
-  "name": "HIS SOCI",
+  "version": "1.0.6",
+  "name": "ALKIP",
   "icons": {
     "48":"static/images/hisengine2.png",
     "16":"static/images/hisengine2.png",

@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, useMediaQuery, useTheme } from '@mui/material';
-import lodashGet from 'lodash/get';
+import get from 'lodash/get';
 import { css } from '@emotion/react';
 
 export const Sidebar = (props) => {
@@ -105,8 +104,8 @@ const root =( open, theme ) => css({
     [`& .MuiPaper-root`]: {
         position: 'relative',
         width: open
-            ? lodashGet(theme, 'sidebar.width', DRAWER_WIDTH)
-            : lodashGet(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
+            ? get(theme, 'sidebar.width', DRAWER_WIDTH)
+            : get(theme, 'sidebar.closedWidth', CLOSED_DRAWER_WIDTH),
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -125,16 +124,6 @@ const root =( open, theme ) => css({
         zIndex: 'inherit',
     },
 });
-const rootTop = theme => css`
-padding-top: 56px;
-height: 100%;
-[${theme.breakpoints.up('sm')}]: {
-  padding-top: 64px;
-}
-`;
-const shiftContent =css({
-    paddingLeft: 240,
-    paddingTop: 64,
-});
+
 export const DRAWER_WIDTH = 240;
 export const CLOSED_DRAWER_WIDTH = 55;

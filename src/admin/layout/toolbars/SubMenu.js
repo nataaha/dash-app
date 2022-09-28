@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
     List,
-    MenuItem,
     ListItemIcon,
     Typography,
     Collapse,
@@ -10,6 +9,11 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Link } from 'react-router-dom';
+import {
+  useCreatePath
+} from '@alkuip/core';
+import { getNavigationQuery } from '../../util';
 
 /**
  * Submenu
@@ -26,20 +30,32 @@ export const SubMenu = (props) => {
         isOpen
     } = props;
     const [open,setOpen ] = useState(isOpen);
+    const createPath = useCreatePath();
     const handleChange = _e=>{
         setOpen(!open);
         handleToggle({ type: 'UPDATE_APP_UISCHEMA', payload:{
-            app: page
+            app: page,
+            query: getNavigationQuery(page)
         }}) 
     }
     const header = name?(
-        <ListItem dense={dense} onClick={handleChange}>
+        <ListItem 
+            dense={dense} 
+            onClick={handleChange}
+        >
             <ListItemIcon sx={{ minWidth: 5 }}>
                 {open ? <ExpandMoreIcon /> : <ExpandLessIcon/>}
             </ListItemIcon>
-            <Typography variant="inherit" color="textSecondary">
-                {name }
-            </Typography>
+                <Link to={  
+                    createPath({
+                        resource: `/${page?.appId}/dashboard?action=dashboard`,
+                        type: 'list',
+                    }) } 
+                >
+                <Typography variant="inherit" color="textSecondary">
+                    {name }
+                </Typography>
+            </Link>
         </ListItem>
     ):null;
 

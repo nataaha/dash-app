@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import { css  } from '@emotion/react';
 import { Button, TextField, Paper, Typography, Grid,CardContent, CircularProgress, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -30,7 +29,6 @@ export const LoginUiPage =(props)=>{
         standaloneApp
     } = props;
     const [loading, setLoading] = useSafeSetState(false);
-    const theme = useTheme(); 
     return (
         <Paper 
         css={ content }

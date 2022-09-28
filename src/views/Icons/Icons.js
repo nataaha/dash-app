@@ -1,23 +1,22 @@
-import { makeStyles } from '@mui/styles';
+import { css } from '@emotion/react';
+import { useTheme } from '@mui/material';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+  const root =theme =>css({
     padding: theme.spacing(4)
-  },
-  iframe: {
+  });
+  const iframe=css({
     width: '100%',
     minHeight: 640,
     border: 0
-  }
-}));
+  });
 
 const Icons = () => {
-  const classes = useStyles();
+  const theme = useTheme();
 
   return (
-    <div className={classes.root}>
+    <div css={root(theme)}>
       <iframe
-        className={classes.iframe}
+        css={iframe}
         src="https://material.io/tools/icons/?icon=accessibility&style=outline"
         title="Material Design icons"
       />

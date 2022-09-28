@@ -1,9 +1,9 @@
 {
-    "url":"https://dhis.nataaha.com",
+    "url":"https://hmis-dev.health.go.ug",
     "api":"https://datax.nataaha.com",
     "dataStore":"https://192.168.92.128/api",
     "standalone": true,
-    "defaultPage": "accreditation",
+    "defaultPage": "elmis",
     "loginFooter": "",
     "loginTitle": "Login to EDW",
     "logo": "",
@@ -55,6 +55,22 @@
             "isAdmin": true
         },
         {
+            "appId":"catalogue",
+            "appName":"catalogue",
+            "title": "Products",
+            "path":"Products",
+            "homePage":"dashboard",
+            "dataStore": "fhir",
+            "setupStore":"metadata",
+            "useDefaultUiSchema": false,
+            "enableFhir": true,
+            "fhirVersion": "4.3.0",
+            "useDhis2Import": false,
+            "isDashboard": false,
+            "isUser": true,
+            "isAdmin": true
+        },
+        {
             "appId":"climate",
             "appName":"climate",
             "title": "Climate",
@@ -66,6 +82,36 @@
             "enableFhir": false,
             "useDhis2Import": false,
             "isDashboard": true,
+            "isUser": true,
+            "isAdmin": true
+        },
+        {
+            "appId":"setup",
+            "appName":"setup",
+            "title": "Configure",
+            "path":"setup",
+            "homePage":"dashboard",
+            "dataStore": "metadata",
+            "setupStore":"metadata",
+            "useDefaultUiSchema": false,
+            "enableFhir": false,
+            "useDhis2Import": false,
+            "isDashboard": false,
+            "isUser": true,
+            "isAdmin": true
+        },
+        {
+            "appId":"mapping",
+            "appName":"mapping",
+            "title": "Mapping/Integration",
+            "path":"mapping",
+            "homePage":"dashboard",
+            "dataStore": "mappings",
+            "setupStore":"metadata",
+            "useDefaultUiSchema": false,
+            "enableFhir": false,
+            "useDhis2Import": false,
+            "isDashboard": false,
             "isUser": true,
             "isAdmin": true
         }

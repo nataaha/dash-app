@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useTheme } from '@mui/styles';
+import { useTheme } from '@mui/material';
 import {
   GridDashboard
 } from '@alkuip/visualization';
