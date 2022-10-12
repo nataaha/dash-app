@@ -1,5 +1,5 @@
 {
-    "url":"https://hmis-dev.health.go.ug",
+    "url":"https://dhis.nataaha.com",
     "api":"https://datax.nataaha.com",
     "dataStore":"https://192.168.92.128/api",
     "standalone": true,
@@ -7,7 +7,10 @@
     "loginFooter": "",
     "loginTitle": "Login to EDW",
     "logo": "",
-    "landingPage":"THREE_COLUMNS",
+    "credit": true,
+    "footer": true,
+    "signup": true,
+    "landingPage":"",
     "apps":[
         {
             "appId":"accreditation",

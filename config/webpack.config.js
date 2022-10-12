@@ -299,7 +299,8 @@ module.exports = function (webpackEnv) {
         stream: require.resolve("stream-browserify"),
         util: require.resolve("util"),
         buffer: require.resolve("buffer"),
-        assert: require.resolve("assert")
+        assert: require.resolve("assert"),
+        //fs: require.resolve('node-fs'),
       },
       // This allows you to set a fallback for where webpack should look for modules.
       // We placed these paths second because we want `node_modules` to "win"

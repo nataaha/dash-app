@@ -1,7 +1,7 @@
 # production environment
 
 FROM nginx:latest
-RUN apt-get update && apt-get install -y python3-minimal
+RUN apt-get update && apt -y upgrade && apt-get install -y python3-minimal
 RUN  rm -rf /app && mkdir /app && mkdir /scripts
 COPY ./build/ /app
 COPY ./build/ /usr/share/nginx/html

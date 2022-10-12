@@ -6,9 +6,7 @@ import {
     Paper, 
     Typography, 
     Grid,
-    CardContent, 
     CircularProgress, 
-    useTheme, 
     Box,
     List,
     ListItem,
@@ -60,7 +58,7 @@ const signUpCss= css({
     padding: '32px 0px 32px 32px'
 })
 
-const footer =css({
+const footerCss =css({
   padding: '16px',
 });
 const copyright = css({
@@ -74,12 +72,13 @@ export const Login3ColsPage =(props)=>{
         integration,
         defaultPage, 
         loginFooter, 
-        loginTitle 
+        loginTitle,
+        footer=true,
+        signup=true
     } = useConfig();
     //Set redirectTo to default config page
     const { redirectTo } = props;
     const [loading, setLoading] = useSafeSetState(false);
-    const theme = useTheme();
     const login = useLogin();
     const notify = useNotify();
     const [formInput, setFormInput] = useReducer(
@@ -279,11 +278,15 @@ export const Login3ColsPage =(props)=>{
                             container
                             spacing ={ 1 }
                         >
-                            <Grid item>
-                                <div css = { signUpCss }>
-                                    <Link to="/signup">Create Account</Link>
-                                </div>
-                            </Grid> 
+                            {
+                                signup?(
+                                    <Grid item>
+                                        <div css = { signUpCss }>
+                                            <Link to="/signup">Create Account</Link>
+                                        </div>
+                                    </Grid>
+                                ): null
+                            }
                             <Grid item>
                                 <div css = { signUpCss }>
                                     <a href={`${ baseUrl }/dhis-web-commons/security/recovery.action`}>Forgot Password</a>
@@ -291,23 +294,29 @@ export const Login3ColsPage =(props)=>{
                             </Grid>
                         </Grid>
                         <Grid item container>
-                            <div css={ footer }>
+                            <div css={ footerCss }>
                                 { loginFooter?? null }
                             </div>                        
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item>
-                    <Box css ={ copyright }>
-                        Copyrights &copy; 2022 &nbsp;&nbsp; <a href="nataaha.com">Powered by ALKIP Platform</a>
-                    </Box>
-                </Grid>
+                {
+                    footer?
+                    (
+                        <Grid item>
+                            <Box css ={ copyright }>
+                                Copyrights &copy; 2022 &nbsp;&nbsp; <a href="nataaha.com">Powered by ALKIP Platform</a>
+                            </Box>
+                        </Grid>
+                    ):null
+                    }
             </Grid>
-        
         </Paper>
     );
 }
 
 Login3ColsPage.propTypes = {
-    redirectTo: PropTypes.string,
+    redirectTo: PropTypes.string
+}
+Login3ColsPage.defaultProps = {
 }

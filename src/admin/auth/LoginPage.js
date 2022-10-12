@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { css  } from '@emotion/react';
-import { Button, TextField, Paper, Typography, Grid,CardContent, CircularProgress, useTheme } from '@mui/material';
+import { Button, TextField, Paper, Typography, Grid, CircularProgress, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -35,15 +35,22 @@ const header =css({
 const signUpCss= css({
     padding: '16px'
 })
-const footer =css({
+const footerCss =css({
   padding: '16px',
 });
 export const LoginPage =(props)=>{
-    const { standalone, baseUrl,dataStore,integration,defaultPage } = useConfig();
+    const { 
+        standalone, 
+        baseUrl,
+        dataStore,
+        integration,
+        defaultPage,
+        signup=true,
+        footer=true, 
+    } = useConfig();
     //Set redirectTo to default config page
     const { redirectTo } = props;
     const [loading, setLoading] = useSafeSetState(false);
-    const theme = useTheme();
     const login = useLogin();
     const notify = useNotify();
     const [formInput, setFormInput] = useReducer(
@@ -134,25 +141,37 @@ export const LoginPage =(props)=>{
                                     thickness={3}
                                 />
                             ) : (
-                                standalone?'Sign In':'Proceed' 
-                            )}
-                            
+                                <Typography>
+                                    {
+                                        standalone?'Sign In':'Proceed'
+                                    }
+                                </Typography>
+                                 
+                            )}                            
                         </Button>
                         </div>
                        
                     </Grid>
                 </form>
             </Grid>
-            <Grid item>
-                <div css = { signUpCss }>
-                    <Link to="/signup">Create Account</Link>
-                </div>
-            </Grid>
-            <Grid item container>
-                <div css={ footer }>
-                Powered by ALKIP Platform
-                </div>                        
-            </Grid>
+            {
+                signup?(
+                    <Grid item>
+                        <div css = { signUpCss }>
+                            <Link to="/signup">Create Account</Link>
+                        </div>
+                    </Grid>
+                ):null
+            }
+            {
+                footer?(
+                    <Grid item container>
+                        <div css={ footerCss }>
+                        Powered by ALKIP Platform
+                        </div>                        
+                    </Grid>
+                ):null
+            }
         </Grid>
         </Paper>
     );
@@ -160,4 +179,6 @@ export const LoginPage =(props)=>{
 
 LoginPage.propTypes = {
     redirectTo: PropTypes.string,
+}
+LoginPage.defaultProps = {
 }

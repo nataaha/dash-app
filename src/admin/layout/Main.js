@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/react';
-import { useMediaQuery, useTheme,Grid, Container } from '@mui/material';
+import { useMediaQuery, useTheme,Grid } from '@mui/material';
+import { useConfig } from '@alkuip/core';
 
 import { 
   Sidebar, 
@@ -35,7 +36,13 @@ const footer= theme =>css({
 })
 
 export const Main = props => {
-  const { children,...rest} = props;
+  const { 
+    children,
+    ...rest
+  } = props;
+  const {
+    credit=true
+  } = useConfig();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true
@@ -83,11 +90,16 @@ export const Main = props => {
             { children }
         </Grid>
       </Grid>
-      <Grid item zeroMinWidth css={ footer(theme)}>
-          <Footer 
-            sx={{ top: 'auto', bottom: 0 }}
-          />
-      </Grid>
+      {
+        credit?
+        (
+          <Grid item zeroMinWidth css={ footer(theme)}>
+            <Footer 
+              sx={{ top: 'auto', bottom: 0 }}
+            />
+          </Grid>
+        ):null
+      }
     </Grid>
   );
 }

@@ -6,7 +6,7 @@ import {
   Minimal as MinimalLayout
 } from '@alkuip/components';
 import {
-  Main as MainLayout
+  Main as MainLayout,
 } from '../../admin/layout';
 import { 
   useFetchApi,
@@ -106,6 +106,9 @@ export const Accreditation = memo((props) => {
                     route = { resource }
                     {...props}
                     footer= {``}
+                    uischemas = { uiSchema }
+                    schemas = { schema}
+                    app ={ state?.app }
                     appDataStore ={ `alkuistore`}
                     appSetupStore ={ `alkuistore`}
                     isDefaultUiSchema = { false }  
@@ -122,6 +125,9 @@ export const Accreditation = memo((props) => {
                     route = { resource }                    
                     {...props}
                     footer= {``}
+                    uischemas = { uiSchema }
+                    schemas = { schema}
+                    app ={ state?.app }
                     appDataStore ={ `alkuistore`}
                     appSetupStore ={ `alkuistore`}
                     isDefaultUiSchema = { false }  

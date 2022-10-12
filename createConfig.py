@@ -14,6 +14,9 @@ def main():
             'bannerImage':os.getenv('ALKUIP_BANNER_IMAGE',''),
             'logo':os.getenv('ALKUIP_LOGO',''),
             'landingPage':os.getenv('ALKUIP_LANDING_PAGE',''),
+            'credit':os.getenv('ALKUIP_CREDIT',True),
+            'footer':os.getenv('ALKUIP_FOOTER',True),
+            'signup':os.getenv('ALKUIP_SIGNUP',True),
             'apps':json.loads(os.getenv('ALKUIP_APPS',"[]")),
         }
         json.dump(configData, f, ensure_ascii=False, indent=2)
