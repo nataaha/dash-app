@@ -14,7 +14,7 @@ if [ -d "./build" ]; then
   cd build
   AppName="${name:=ALKIP}"
   AppImage="${image:=hisengine2}"
-  AppTitle="${image:=ALKIP}"
+  AppTitle="${title:=ALKIP}"
   sed -i -e "s/ALKIP/${AppName}/gI" manifest.json
   sed -i -e "s/hisengine2/${AppImage}/gI" manifest.json
   sed -i -e "s/ALKIP/${AppTitle}/gI" index.html

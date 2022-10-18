@@ -1,12 +1,11 @@
-import ReactDOM from 'react-dom';
 import {
   awaitFetcher,
-  AuthProvider
 } from '@alkuip/core';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from "react-router-dom";
 import { AuthDhis2Provider  } from './AuthDhis2Provider';
 import { Admin, SignInPage , LoginUiPage } from './admin';
+import { createRoot } from 'react-dom/client';
 
 /***
  * Exports 
@@ -19,8 +18,9 @@ export { routes } from './Routes';
  */
 const initApp = async () => {
   const appData  = await awaitFetcher(`AppConfig.json`,null);
-
-  ReactDOM.render(
+  const container = document.getElementById('root');
+  const root = createRoot(container); 
+  root.render(
     <Router>
       {
         <Admin 
@@ -33,7 +33,7 @@ const initApp = async () => {
           //layout={CustomLayout}
         />
       }
-    </Router>,document.getElementById('root')
+    </Router>
   );
 };
 
