@@ -1,14 +1,14 @@
 {
   "version": "v1",
   "packages": {
-    "@alkuip/charts": {
-      "signature": "ce8c461536efb911e1cc7323925b2cf8"
+    "@alkuip/core": {
+      "signature": "9d5de85fe36641d960688e5407786d5a"
     },
     "@alkuip/forms": {
-      "signature": "b4c5ad0af17fd9b46f111fc716ab23e5"
+      "signature": "07bff84880eb8703d1667418f52529b6"
     },
-    "@alkuip/core": {
-      "signature": "ddd3f03375f1a444418489ad18e560a7"
+    "@alkuip/charts": {
+      "signature": "ce8c461536efb911e1cc7323925b2cf8"
     },
     "@alkuip/jsonforms": {
       "signature": "5f2a33d6e64535058a79cfd580ad8c5b"

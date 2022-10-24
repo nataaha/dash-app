@@ -63,3 +63,4 @@ lerna-debug.log*
 .next*
 .yalc
 .yalc.lock
+public/static/images/signature*
