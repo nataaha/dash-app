@@ -36,7 +36,14 @@ const banner = (image)=>css({
 });
 export const Topbar = props => {
   const { className, onSidebarOpen, ...rest } = props;
-  const { baseUrl, standalone, logo, bannerImage } = useConfig();
+  const { 
+    baseUrl, 
+    standalone, 
+    logo, 
+    bannerImage,
+    notifications: notify,
+    signout
+  } = useConfig();
   const [notifications] = useState([]);
   const theme = useTheme();
 
@@ -61,20 +68,30 @@ export const Topbar = props => {
           ):null
         }
         <div css={ flexGrow} />
-          <IconButton css={signOutButton(theme)} size="large">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <a href={ baseUrl }>
-            <IconButton css={ signOutButton(theme)} size="large">
-              <InputIcon />
-            </IconButton>
-          </a>
+          {
+            notify?
+            (
+                <IconButton css={signOutButton(theme)} size="large">
+                  <Badge
+                    badgeContent={notifications.length}
+                    color="primary"
+                    variant="dot"
+                  >
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+            ):null
+          }
+          {
+            signout?
+            (
+              <a href={ baseUrl }>
+                <IconButton css={ signOutButton(theme)} size="large">
+                  <InputIcon />
+                </IconButton>
+              </a>
+            ): null
+          }
           <IconButton css={ signOutButton(theme) } onClick={ onSidebarOpen } size="large">
             <MenuIcon />
           </IconButton>

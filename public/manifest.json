@@ -1,6 +1,6 @@
 {
   "short_name": "HISEngine",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "name": "ALKIP",
   "icons": {
     "48":"static/images/hisengine2.png",
@@ -20,7 +20,7 @@
     }
   },
   "dhis2":{
-    "apiVersion": "33"
+    "apiVersion": "36"
   },
   "start_url": ".",
   "homepage": ".",

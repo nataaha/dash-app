@@ -42,6 +42,7 @@ export const SubMenu = (props) => {
         <ListItem 
             dense={dense} 
             onClick={handleChange}
+            alignItems = { 'flex-start'}
         >
             <ListItemIcon sx={{ minWidth: 5 }}>
                 {open ? <ExpandMoreIcon /> : <ExpandLessIcon/>}

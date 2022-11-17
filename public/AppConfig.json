@@ -10,6 +10,9 @@
     "credit": true,
     "footer": true,
     "signup": true,
+    "signout": false,
+    "notifications": false,
+    "creditName":"Nataaha Hotels",
     "landingPage":"",
     "apps":[
         {

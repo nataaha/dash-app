@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { Footer } from '../layout/toolbars';
 import {
     useLogin,
     useNotify,
@@ -23,13 +23,13 @@ import {
 } from '@alkuip/core';
 
 const content= css({
-  width: '100%',
-  height: '100%',
-  padding: '32px'
+  width: '96%',
+  height: '96%',
+  padding: '2%'
 });
 const banner= css({
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: '96%',
+    maxHeight: '96%',
     display: 'block',
     opacity: 1.0,
     objectFit: 'contain'
@@ -62,7 +62,8 @@ const footerCss =css({
   padding: '16px',
 });
 const copyright = css({
-    marginLeft: '30%'
+    padding: '16px',
+    marginLeft: '-20%'
 })
 export const Login3ColsPage =(props)=>{
     const { 
@@ -197,7 +198,7 @@ export const Login3ColsPage =(props)=>{
                                 </ListItem>
                             </List>
                             This information will be entered in an online system as part of the accreditation process necessary for any NGO to provide HIV and AIDS Services in the Country. Any organization that meets the set requirements will be issued with an Accreditation certificate which is a legal requirement to provide HIV and AIDS Services in the Country.<br></br><br></br>                           
-                            For help filling the form please click <a href="/">here.</a>
+                            For help filling the form please click <a href="/documentation">here.</a>
                         </Box>
                     </Grid>
                     <Grid 
@@ -304,9 +305,11 @@ export const Login3ColsPage =(props)=>{
                     footer?
                     (
                         <Grid item>
-                            <Box css ={ copyright }>
-                                Copyrights &copy; 2022 &nbsp;&nbsp; <a href="nataaha.com">Powered by ALKIP Platform</a>
-                            </Box>
+                            <div  css ={ copyright }>
+                                <Footer 
+                                    sx={{ top: 'auto', bottom: 0 }}
+                                />
+                            </div>
                         </Grid>
                     ):null
                     }

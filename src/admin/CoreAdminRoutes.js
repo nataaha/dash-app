@@ -8,8 +8,6 @@ import {
 } from '@alkuip/core';
 import { routes as resources } from '../Routes';
 import {
-    Dashboard as DashboardView,
-    NotFound as NotFoundView,
     Accreditation as AccreditationView,
   } from '../views';
 import { useScrollToTop } from './routing';

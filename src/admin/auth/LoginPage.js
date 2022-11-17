@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { css  } from '@emotion/react';
-import { Button, TextField, Paper, Typography, Grid, CircularProgress, useTheme } from '@mui/material';
+import { Button, TextField, Paper, Typography, Grid, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -9,34 +9,41 @@ import {
     useSafeSetState,
     useConfig
 } from '@alkuip/core';
+import { Footer } from '../layout/toolbars';
 
 const content= css({
-  width: '100%',
-  height: '100%',
-  padding: '32px',
-  opacity: 0.8,
-  /*background:
-  'url(https://uac.go.ug/images/uac30-png.png)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',*/
+    width: '96%',
+    height: '96%',
+    padding: '2%',
+    opacity: 0.9
 });
-const root = css`
- margin: 15% auto auto 30%;
-`
-const loginCss =css({
-    width: '20%',
-    padding: '16px',
-    opacity:1.0,
-    backgroundColor: '#ffffff'
+const root = css({
+    margin: '1% 0% 0% 30%',
+    width: '60%'
+});
+
+const loginCss =css({  
+    maxWidth: '100%',
+    padding: '32px 64px',
+    opacity: 0.9,
+    backgroundColor: '#f3f5f7'
 });
 const header =css({
   padding: '16px',
 });
 const signUpCss= css({
     padding: '16px'
-})
-const footerCss =css({
+});
+const loginField =css({
+    marginBottom: '16px',
+    backgroundColor: '#ffffff'
+});
+const loginSection =css({
+    width:'60%'
+});
+const copyright =css({
   padding: '16px',
+  marginLeft: '-20%'
 });
 export const LoginPage =(props)=>{
     const { 
@@ -94,7 +101,7 @@ export const LoginPage =(props)=>{
                     </Typography>
                 </div>
             </Grid>
-            <Grid item container >
+            <Grid item container>
                 <form  css={ loginCss } autoComplete='off' noValidate >
                     {
                         standalone?(
@@ -107,6 +114,7 @@ export const LoginPage =(props)=>{
                                         name='username'
                                         helperText='Enter username'
                                         onChange={ handleInput }
+                                        css = { loginField }
                                     />
                                 </Grid>
                                 <Grid item>
@@ -118,6 +126,7 @@ export const LoginPage =(props)=>{
                                         required
                                         helperText='Enter password'
                                         onChange={ handleInput }
+                                        css = { loginField }
                                     />
                                 </Grid>
                             </>
@@ -166,9 +175,12 @@ export const LoginPage =(props)=>{
             {
                 footer?(
                     <Grid item container>
-                        <div css={ footerCss }>
-                        Powered by ALKIP Platform
-                        </div>                        
+                        <div  css ={ copyright }>
+                            <Footer 
+                                sx={{ top: 'auto', bottom: 0 }}
+                            />
+                        </div>
+                        
                     </Grid>
                 ):null
             }
