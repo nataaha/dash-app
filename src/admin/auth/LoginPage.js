@@ -43,7 +43,7 @@ const loginSection =css({
 });
 const copyright =css({
   padding: '16px',
-  marginLeft: '-20%'
+  marginLeft: '-35%'
 });
 export const LoginPage =(props)=>{
     const { 
@@ -152,7 +152,7 @@ export const LoginPage =(props)=>{
                             ) : (
                                 <Typography>
                                     {
-                                        standalone?'Sign In':'Proceed'
+                                        standalone?'Sign In':'Authorize'
                                     }
                                 </Typography>
                                  

@@ -21,7 +21,8 @@ export const Footer = props => {
   const { 
     baseUrl, 
     credit,
-    creditName 
+    creditName,
+    creditUrl 
   } = useConfig();
   const theme = useTheme();
   return (
@@ -42,7 +43,7 @@ export const Footer = props => {
             xmlnsdct="https://purl.org/dc/terms/"
           >
             Copyrights &copy; 2022 &nbsp;&nbsp;
-            <a property="dct:title" rel="cc:attributionURL" href={ baseUrl }>{ creditName??`ALKIP Platform` }
+            <a property="dct:title" rel="cc:attributionURL" href={ creditUrl??baseUrl }>{ creditName??`ALKIP Platform` }
             </a>
           </Typography>
         ):

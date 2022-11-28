@@ -265,7 +265,7 @@ export const Login3ColsPage =(props)=>{
                                                 thickness={3}
                                             />
                                         ) : (
-                                            standalone?'Sign In':'Proceed' 
+                                            standalone?'Sign In':'Authorize' 
                                         )}
                                         
                                     </Button>

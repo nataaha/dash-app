@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import HomeIcon from '@mui/icons-material/Home';
+import Icon from '@mui/material/Icon';
 import { Link } from 'react-router-dom';
 import { useLoginUser, useCreatePath,useUiMenuSchema } from '@alkuip/core';
 import { css } from '@emotion/react';
@@ -68,26 +69,36 @@ export const MenuLink=(props)=> {
                             {ui.title}
                             </Button>
                         </a>
-                        ):(
-                            ui?.uischema?.options?.link?(
-                                <Link 
-                                  key ={`link-${index}`} 
-                                  color="inherit" 
-                                  to={  createPath({
-                                      resource: `/${ui?.uischema?.options?.route}/${ui?.uischema?.options?.path}?action=${ui.action}`,
-                                      type: 'list',
-                                  }) } 
-                                  css={ link }>
-                                    <Button
-                                    activeclassname={ active(theme)}
-                                    css={button(theme)}
-                                    key={ `page-admin-${ui.title}-${index}`}
-                                    >
-                                      <div css={icon(theme)}><HomeIcon/></div>
-                                      { ui?.uischema?.options?.label??ui.action}
-                                    </Button>
-                                </Link>
-                            ): null
+                        ):
+                        (
+                          ui?.uischema?.options?.link?(
+                            <Link 
+                              key ={`link-${index}`} 
+                              color="inherit" 
+                              to={  createPath({
+                                  resource: `/${ui?.uischema?.options?.route}/${ui?.uischema?.options?.path}?action=${ui.action}`,
+                                  type: 'list',
+                              }) } 
+                              css={ link }>
+                                <Button
+                                activeclassname={ active(theme)}
+                                css={button(theme)}
+                                key={ `page-admin-${ui.title}-${index}`}
+                                >
+                                  <div css={icon(theme)}>
+                                    {
+                                      ui?.icon?(
+                                        <Icon color={ theme.palette.primary.main }>{ ui?.icon }</Icon>
+                                      ):
+                                      (
+                                        <HomeIcon/>
+                                      )
+                                    }                                      
+                                  </div>
+                                    { ui?.uischema?.options?.label??ui.action}
+                                </Button>
+                            </Link>
+                          ): null
                         )
                     }
                     </ListItem>
