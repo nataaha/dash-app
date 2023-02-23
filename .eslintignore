@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+nginx/
+i18n/
+.vscode
+.yarn
+.eslintingnore
+.prettierrc.json
+.eslintrc.json
+env.d.ts
+*.sh
+tsconfig.json
+
