@@ -27,7 +27,7 @@ jobs:
      
       - name: "Install Node/Yarn dependencies"
         run: |
-          yarn --frozen-lockfile
+          yarn install
           yarn build:tsc
           cp ./public/manifest.json dist/manifest.webapp
 
