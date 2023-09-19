@@ -10,7 +10,6 @@ import welcome from '@/utils/welcome';
 
 Promise.all([import('./Root'), import('@/App')]).then(([{ default: initApp }, { default: App }]) => {
   initApp(App as any);
-  console.log("Done");
 });
 
 // welcome message for users in the console

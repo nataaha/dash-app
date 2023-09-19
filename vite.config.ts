@@ -62,11 +62,9 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: "build",
-      sourcemap: true,
-      minify:false
+      sourcemap: false
     },
     define: {
-      global: {},
     }
   };
 });

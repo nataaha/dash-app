@@ -1,5 +1,5 @@
 
-import { ComponentType, StrictMode, useEffect, useState } from 'react';
+import { ComponentType, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { RecoilRoot } from 'recoil';
@@ -7,29 +7,29 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
+import { axiosClient, useToken } from '@alkuip/core';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
-const defaultQueryFn = async ({ queryKey }:any) => {
-    const response = await fetch(`../../${queryKey}`);
-    if (!response.ok) {
-        throw new Error('Network response was not ok')
-    }
-    return response.json();
+
+export const defaultQueryFn = async ({ queryKey }:any) => {
+    const token: any = useToken();
+    const response = await axiosClient({
+        url: `../../${queryKey}`,
+        withCredentials: true,
+        headers:{
+            Authorization: `Bearer ${ token?.accessToken??""}`
+        }
+    });
+    return response?.data;
 };
-const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        queryFn: defaultQueryFn,
-      },
-    },
-});
+const queryClient = new QueryClient();
   /**
    * Initialize the Platform Application
    */
-  const initApp = (App:ComponentType) => {
+  //Disabled StrictMode
+const initApp = (App:ComponentType) => {
     root.render(
-        <StrictMode>
             <QueryClientProvider client={queryClient}>
                 <RecoilRoot>
                     <HelmetProvider>
@@ -37,7 +37,6 @@ const queryClient = new QueryClient({
                     </HelmetProvider>
                 </RecoilRoot>
             </QueryClientProvider>
-        </StrictMode>
     );
 };
   
