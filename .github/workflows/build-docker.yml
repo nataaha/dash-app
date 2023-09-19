@@ -3,7 +3,7 @@ name: ALKUIP Dashboard Docker Quickstart
 on:
   push:
     branches:
-      - dev
+      - master
 
 concurrency:
   group: build-${{ github.ref }}
