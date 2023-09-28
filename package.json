@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@alkuip/charts": "^3.0.18",
-    "@alkuip/core": "^3.0.18",
+    "@alkuip/core": "^3.0.17",
     "@alkuip/forms": "^3.0.18",
     "@alkuip/jsonforms": "^3.0.18",
     "@alkuip/maps": "^3.0.18",
