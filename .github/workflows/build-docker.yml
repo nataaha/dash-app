@@ -27,9 +27,10 @@ jobs:
      
       - name: "Install Node/Yarn dependencies"
         run: |
+          export NODE_OPTIONS="--max-old-space-size=8192"
           yarn install
           yarn build:tsc
-          cp ./public/manifest.json dist/manifest.webapp
+          cp ./build/manifest.json dist/manifest.webapp
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
