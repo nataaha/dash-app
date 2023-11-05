@@ -1,14 +1,11 @@
 import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-//import envCompatible from "vite-plugin-env-compatible";
 import svgrPlugin from "vite-plugin-svgr";
 import checker from "vite-plugin-checker";
 import { VitePWA } from 'vite-plugin-pwa';
 import zipPack from "vite-plugin-zip-pack";
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
-
-const ENV_PREFIX = "REACT_APP_";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -62,7 +59,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: "build",
-      sourcemap: false
+      sourcemap: true
     },
     define: {
     }

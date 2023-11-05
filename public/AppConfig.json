@@ -5,6 +5,13 @@
     "standalone": true,
     "strategy": "dhis2",
     "usernameField":"username",
+    "usernameFieldLabel": "email address",
+    "feedback":{
+        "enabled": true,
+        "telephone":"+256000000000",
+        "email":"email@nataaha.com",
+        "description":"For any help, please contact:"
+    },
     "defaultPage": "accreditation",
     "loginFooter": "",
     "loginTitle": "Login to EDW",
