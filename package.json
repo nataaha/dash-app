@@ -58,7 +58,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^29.3.1",
+    "jest": "^29.7.0",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^2.2.1",
     "lint-staged": "^13.1.0",
@@ -69,7 +69,6 @@
     "vite-plugin-checker": "^0.5.3",
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-html": "^3.2.0",
-    "vite-plugin-node-polyfills": "^0.7.0",
     "vite-plugin-pwa": "^0.14.1",
     "vite-plugin-svgr": "^2.4.0",
     "vite-plugin-zip-pack": "^1.0.5",
@@ -108,5 +107,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "d3-color": "3.1.0",
+    "@babel/traverse": ">=7.23.2",
+    "postcss":">=8.4.31"
   }
 }

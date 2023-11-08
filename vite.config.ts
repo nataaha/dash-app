@@ -5,24 +5,13 @@ import svgrPlugin from "vite-plugin-svgr";
 import checker from "vite-plugin-checker";
 import { VitePWA } from 'vite-plugin-pwa';
 import zipPack from "vite-plugin-zip-pack";
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
     plugins: [
-        nodePolyfills({
-          // Whether to polyfill `node:` protocol imports.
-          protocolImports: true,
-        }),
         react({
-          jsxImportSource: "@emotion/react",
-          babel: {
-              
-              plugins: [
-                "@emotion/babel-plugin"
-              ]
-          }
+          jsxImportSource: "@emotion/react"
         }),
         checker({
             overlay: false,
