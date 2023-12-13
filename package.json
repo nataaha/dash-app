@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@alkuip/charts": "^3.0.19",
-    "@alkuip/core": "^3.0.20",
-    "@alkuip/forms": "^3.0.20",
-    "@alkuip/jsonforms": "^3.0.20",
-    "@alkuip/maps": "^3.0.19",
-    "@alkuip/tables": "^3.0.20",
-    "@alkuip/visualization": "^3.0.20",
+    "@alkuip/charts": "file:.yalc/@alkuip/charts",
+    "@alkuip/core": "file:.yalc/@alkuip/core",
+    "@alkuip/forms": "file:.yalc/@alkuip/forms",
+    "@alkuip/jsonforms": "file:.yalc/@alkuip/jsonforms",
+    "@alkuip/maps": "file:.yalc/@alkuip/maps",
+    "@alkuip/tables": "file:.yalc/@alkuip/tables",
+    "@alkuip/visualization": "file:.yalc/@alkuip/visualization",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@jsonforms/core": "^3.1.0",
@@ -111,6 +111,6 @@
   "resolutions": {
     "d3-color": "3.1.0",
     "@babel/traverse": ">=7.23.2",
-    "postcss":">=8.4.31"
+    "postcss": ">=8.4.31"
   }
 }
