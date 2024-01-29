@@ -1,7 +1,7 @@
 {
     "url":"https://dhis.nataaha.com",
     "api":"https://datax.nataaha.com",
-    "dataStore":"https://192.168.75.128/api",
+    "dataStore":"https://192.168.223.128/api",
     "standalone": true,
     "strategy": "dhis2",
     "usernameField":"username",
@@ -12,7 +12,7 @@
         "email":"email@nataaha.com",
         "description":"For any help, please contact:"
     },
-    "defaultPage": "accreditation",
+    "defaultPage": "hotel",
     "loginFooter": "",
     "loginTitle": "Login to EDW",
     "logo": "",

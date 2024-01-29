@@ -1,21 +1,9 @@
-import { Fragment } from 'react';
-import {
-  BootstrapApp
-} from '@alkuip/jsonforms';
-
-//import { withErrorHandler } from '@/error-handling';
-//import AppErrorBoundaryFallback from '@/error-handling/fallbacks/App';
-
-import Notifications from '@/sections/Notifications';
-import SW from '@/serviceWorkers/SW';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Routes';
 
 const App = ()=> {
   return (
-    <Fragment>
-      <BootstrapApp/>
-      <Notifications />
-      <SW />
-    </Fragment>
+    <RouterProvider router= { router }/>
   )
 }
 

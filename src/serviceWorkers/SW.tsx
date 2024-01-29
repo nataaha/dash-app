@@ -1,18 +1,15 @@
-import { useCallback, useEffect, useRef } from 'react';
+//import { useRef } from 'react';
 
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
+//import type { SnackbarKey } from 'notistack';
+//import { useRegisterSW } from 'virtual:pwa-register/react';
 
-import type { SnackbarKey } from 'notistack';
-import { useRegisterSW } from 'virtual:pwa-register/react';
-
-import useNotifications from '@/store/notifications';
+//import useNotifications from '@/store/notifications';
 
 // TODO (Suren): this should be a custom hook :)
 const SW =()=> {
-  const [, notificationsActions] = useNotifications();
-  const notificationKey = useRef<SnackbarKey | null>(null);
-  const {
+  //const [, notificationsActions] = useNotifications();
+  //const notificationKey = useRef<SnackbarKey | null>(null);
+  /*const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
@@ -51,7 +48,7 @@ const SW =()=> {
       });
     }
   }, [close, needRefresh, offlineReady, notificationsActions, updateServiceWorker]);
-
+  */
   return null;
 }
 

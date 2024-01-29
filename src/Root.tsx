@@ -1,8 +1,5 @@
-
-import { ComponentType, StrictMode } from 'react';
+import { ComponentType } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
-import { RecoilRoot } from 'recoil';
 import {
     QueryClient,
     QueryClientProvider,
@@ -23,7 +20,7 @@ export const defaultQueryFn = async ({ queryKey }:any) => {
     });
     return response?.data;
 };
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
   /**
    * Initialize the Platform Application
    */
@@ -31,11 +28,7 @@ const queryClient = new QueryClient();
 const initApp = (App:ComponentType) => {
     root.render(
             <QueryClientProvider client={queryClient}>
-                <RecoilRoot>
-                    <HelmetProvider>
-                        <App/>
-                    </HelmetProvider>
-                </RecoilRoot>
+                <App/>
             </QueryClientProvider>
     );
 };
