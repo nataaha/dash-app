@@ -12,7 +12,7 @@
       "replaced": "^3.0.19"
     },
     "@alkuip/core": {
-      "signature": "3bb00d3a809b1ec7ee36b16cd0489acd",
+      "signature": "b6d56b546e44aac77fd48ce4cedb14e6",
       "file": true,
       "replaced": "^3.0.20"
     },
@@ -32,7 +32,7 @@
       "replaced": "^3.0.19"
     },
     "@alkuip/jsonforms": {
-      "signature": "b8583cf65ba7b3d631272ac5baa75f1c",
+      "signature": "8330f9721f7257e1881cc897f83ca68c",
       "file": true,
       "replaced": "^3.0.20"
     }

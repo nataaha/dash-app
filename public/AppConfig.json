@@ -24,6 +24,11 @@
     "creditName":"Nataaha Hotels",
     "creditUrl":"",
     "landingPage":"THREE_COLUMNS",
+    "auth":{
+        "url":"https://auth0.nataaha.com",
+        "realm":"test",
+        "clientId":"testapp"
+    },
     "apps":[
         {
             "appId":"accreditation",
