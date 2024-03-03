@@ -1,16 +1,20 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import {
   NotFound as SuspenseNotFoundView,
   AppWebView as SuspenseAppWebView,
+  AppWebViewHome,
   SignInPage,
   RecoverAccountPage,
   LoginUiPage,
   AdminLayout,
   LoginLayout,
+  useUiSchemaLoader,
+  useUiPageLoader,
 } from '@alkuip/jsonforms';
 import type { RouteObject } from "react-router-dom";
 import { Key, ReactNode } from 'react';
-import { useMenuLoader } from './useMenuLoader';
+import { useAppLoader } from './useAppLoader';
+import { queryClient } from './Root';
 
 export type MenuRouteItem = {
   label: ReactNode;
@@ -18,64 +22,64 @@ export type MenuRouteItem = {
   icon?: ReactNode;
   layout?: string;
 };
-export const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <AdminLayout/>,
-    loader: useMenuLoader,
-    errorElement: <SuspenseNotFoundView/>,
-    children:[
+
+export const routes: RouteObject[]=[
       {
-        index: true,
-        element: <SuspenseAppWebView/>
+        path: "/",
+        element: <AdminLayout/>,
+        loader: useAppLoader,
+        errorElement: <SuspenseNotFoundView/>,
+        children:[
+          {
+            index: true,
+            loader: useUiSchemaLoader({queryClient}),
+            element: <AppWebViewHome/>
+          },
+          {
+            path: ':appName?',
+            loader: useUiPageLoader({queryClient}),
+            element: <SuspenseAppWebView/>
+          },
+          {
+            path: ':appName?/:id',
+            loader: useUiPageLoader({queryClient}),
+            element: <SuspenseAppWebView/>
+          },
+          {
+            path: ':appName?/*',
+            loader: useUiPageLoader({queryClient}),
+            element: <SuspenseAppWebView/>
+          },
+        ]
       },
       {
-        path: ':appName?',
-        element: <SuspenseAppWebView/>
+        path: "/login", 
+        loader: useAppLoader,
+        element: <LoginLayout/>,
       },
       {
-        path: ':appName?/:id',
-        element: <SuspenseAppWebView/>
+        path: "/signup", 
+        loader: useAppLoader,
+        element: <SignInPage/>
       },
       {
-        path: ':appName?/*',
-        element: <SuspenseAppWebView/>
+        path: "/authManager",
+        loader: useAppLoader,
+        element: <RecoverAccountPage/>
       },
+      {
+        path: "/auth-callback",
+        loader: useAppLoader,
+        element: <LoginUiPage/>
+      },
+      {
+        path: '*',
+        element: <SuspenseNotFoundView/>
+      }
     ]
-  },
-  {
-    path: "/login", 
-    loader: useMenuLoader,
-    element: <LoginLayout/>,
-  },
-  {
-    path: "/signup", 
-    loader: useMenuLoader,
-    element: <SignInPage/>
-  },
-  {
-    path: "/authManager",
-    loader: useMenuLoader,
-    element: <RecoverAccountPage/>
-  },
-  {
-    path: "/auth-callback",
-    loader: useMenuLoader,
-    element: <LoginUiPage/>
-  },
-  {
-    path: "/*",
-    element: <AdminLayout/>,
-    loader: useMenuLoader,
-    errorElement: <SuspenseNotFoundView/>,
-    
-  },
-  {
-    path: '*',
-    element: <SuspenseNotFoundView/>
-  }
-];
+
+export const router: any= createHashRouter(routes);
 
 
-export const router: any= createBrowserRouter(routes);
+
 

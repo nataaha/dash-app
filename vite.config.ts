@@ -48,7 +48,8 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: "build",
-      sourcemap: true
+      sourcemap: true,
+      minify: false
     },
     define: {
     }

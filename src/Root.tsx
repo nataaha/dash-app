@@ -4,13 +4,13 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
-import { axiosClient, useToken } from '@alkuip/core';
+import { axiosClient, getToken } from '@alkuip/core';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
 export const defaultQueryFn = async ({ queryKey }:any) => {
-    const token: any = useToken();
+    const token: any = getToken();
     const response = await axiosClient({
         url: `../../${queryKey}`,
         withCredentials: true,
