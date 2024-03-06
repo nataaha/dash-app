@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@alkuip/forms": {
-      "signature": "8980b8ac9d3f6ebad3c5527ce5b1d692",
+      "signature": "dbd9f64578dda03b9cd374994e9b34c6",
       "file": true,
       "replaced": "^3.0.20"
     },
@@ -12,17 +12,17 @@
       "replaced": "^3.0.19"
     },
     "@alkuip/core": {
-      "signature": "582f0e1aff1eceac5f9ddfe0abf8d5fd",
+      "signature": "3092c1adb6429c4bcbf542baa6058409",
       "file": true,
       "replaced": "^3.0.20"
     },
     "@alkuip/tables": {
-      "signature": "2d1123defd535de8fd366c915549cec6",
+      "signature": "2793966f1b49d0a1426ec6da4d76e388",
       "file": true,
       "replaced": "^3.0.20"
     },
     "@alkuip/visualization": {
-      "signature": "a1cbce987dc695688c586a597227a5c5",
+      "signature": "abccfa742c4024b042a24ae0225ef2c7",
       "file": true,
       "replaced": "^3.0.20"
     },
@@ -32,7 +32,7 @@
       "replaced": "^3.0.19"
     },
     "@alkuip/jsonforms": {
-      "signature": "e0c330c8835a0ef4c32b6a5e033ab401",
+      "signature": "510007dc57b39b6a8e6124bd2791dba2",
       "file": true,
       "replaced": "^3.0.20"
     }
