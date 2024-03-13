@@ -32,22 +32,22 @@
     d3-scale-chromatic "^3.0.0"
     echarts "^5.5.0"
 
-"@alkuip/core@^3.0.22":
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.22.tgz#ac58bb51881059fd251746f4dc66ff304b39fe3d"
-  integrity sha512-GRse2A5ffQ5vgRT9JWrRLqd0hO38OozdTDFea3Cs4I7Jtxyv/dZJz2yp15kS7RObv9m4rKMjvpqi06f2QVSoVA==
+"@alkuip/core@^3.0.23":
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.23.tgz#f7ebfb5889f09d71e9e35e98f806055daab0c10d"
+  integrity sha512-1nKVI0HMoIvq85s2qjIHoX4arpcKvW0xuzlVnMLN00I0wecuN+4ye4+ZExCOfoidTnilTr3WspsDWWT4J0AxKA==
   dependencies:
     "@json2csv/plainjs" "^6.1.2"
     "@json2csv/transforms" "^6.1.2"
     "@react-pdf/renderer" "^3.3.8"
-    axios "1.4.0"
+    axios "^1.6.7"
     bwip-js "^4.2.0"
     chevrotain "^10.4.2"
     d3-array "^3.2.1"
     d3-format "^3.1.0"
     d3-time-format "^4.1.0"
     dompurify "^3.0.9"
-    fig-tree-evaluator "^2.13.2"
+    fig-tree-evaluator "^2.14.0"
     handlebars "^4.7.8"
     html-react-parser "^5.1.8"
     js-cookie "^3.0.1"
@@ -61,10 +61,10 @@
     uuid "^9.0.0"
     zustand "^4.5.2"
 
-"@alkuip/forms@^3.0.22":
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.22.tgz#3bee291420a27a430a5218912b940d7d28afa908"
-  integrity sha512-d1RhPWFnhA3/DvIe1dwINqBYSofqB6JTX7UYdyPLD2mWSNQB7J84LYSMCAoI1AiAK+/o4p5JY2evhLmgHCx+SQ==
+"@alkuip/forms@^3.0.23":
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.23.tgz#5d44bfc3f63869383c65d2ac977afa409d0a1c86"
+  integrity sha512-D7PRW86HYuWA0VHJ4O58HX5VhLyOAvOHTv+dNq4WO5gdV+edXpOPv/HflfsMAUnl61AFNn309tvCvsg3lsA1gg==
   dependencies:
     "@lexical/clipboard" "^0.13.1"
     "@lexical/code" "^0.13.1"
@@ -95,10 +95,10 @@
     y-websocket "^1.5.4"
     yjs "^13.6.12"
 
-"@alkuip/jsonforms@^3.0.22":
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.22.tgz#96e21b9a17a48e6be98e51d43c8a9a2ec2dc1f2b"
-  integrity sha512-KSibtFo6LSp9Wmi15R6dvDiwToQSHNJvtU1ZAUpQry1ZEBXwCIPvUXL3AozVKZr5lbc8ywYO0KT1HjgioKknBA==
+"@alkuip/jsonforms@^3.0.23":
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.23.tgz#611bad434ec8d1d2d1a3be8b6b0480ebdd9e8d27"
+  integrity sha512-X/hh56SNcI4gYHJXm8EeS5NbEvCbcQFphjcExVM8oH7AS/8VmMxC/KnP1ldLIW23eGhr4ePPaLEigKpbC2jfFQ==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^10.1.0"
     "@jsonforms/core" "3.1.0"
@@ -117,19 +117,19 @@
   dependencies:
     ol "^8.1.0"
 
-"@alkuip/tables@^3.0.22":
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.22.tgz#bf2203ad0c7d26440a11c1c5794bcdc95ae7d9bf"
-  integrity sha512-cqsdulRngqY+GEyvv/S5PTn8nX1lQIqPqtSZISkzLKhVZWRgwlbAp6cUSQ/92KKdR5vrkp0YLWxNi/w9keTNZQ==
+"@alkuip/tables@^3.0.23":
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.23.tgz#d6bfb8221cc6925aca015b73f5490a926d9d208f"
+  integrity sha512-13XysErORvKghX09hm2P/b3cvl6EONCQJ279HosAzuBxcX6CApqNjdOLYBVEqCIaidSWB/imyWxXpiVC8nSoRg==
   dependencies:
     "@mui/x-data-grid" "^7.0.0-alpha.9"
     immer "^9.0.21"
     use-immer "^0.9.0"
 
-"@alkuip/visualization@^3.0.22":
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.22.tgz#c922a275298602d5b06404ef214411e3e72e2e46"
-  integrity sha512-BsKslST/Masg4tmHD+bx4Zo3q3gecKBV7ZqFCdP3ny8cBT6hLA59+YsUKkKAd93TEKmRXmTs1lEFHsBsDDq+pA==
+"@alkuip/visualization@^3.0.23":
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.23.tgz#6f877ce0d689da6027ca97f91ce469ad0b6edb61"
+  integrity sha512-j2xLfbWsnBv7/8hbGYEqThg7+IA3SEKT7dYQvg2uO9LdSZzO5VWIfmNMn7hjALC5cTcNIxSlqSPWMtBn83dcfA==
   dependencies:
     react-grid-layout "1.3.4"
     react-resizable "3.0.5"
@@ -4029,15 +4029,6 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.2.tgz#040a7342b20765cb18bb50b628394c21bccc17a0"
   integrity sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==
 
-axios@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.4.0.tgz#38a7bf1224cd308de271146038b551d725f0be1f"
-  integrity sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==
-  dependencies:
-    follow-redirects "^1.15.0"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
 axios@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.5.1.tgz#11fbaa11fc35f431193a9564109c88c1f27b585f"
@@ -4047,7 +4038,7 @@ axios@^1.5.1:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
-axios@^1.6.0:
+axios@^1.6.0, axios@^1.6.7:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
   integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
@@ -5758,15 +5749,15 @@ fflate@^0.4.8:
   resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
   integrity sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==
 
-fig-tree-evaluator@^2.13.2:
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/fig-tree-evaluator/-/fig-tree-evaluator-2.13.2.tgz#2bfe091166b4a7ea365ea57631e5e01f93a150e1"
-  integrity sha512-olSMZMMyJUIrdKO5nl439lVnK4XqggYqEFeck25HM0MkQ8lpLLHGRov3mg3XsUif6KawZ4lFeLsbWQDDfAYV/Q==
+fig-tree-evaluator@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/fig-tree-evaluator/-/fig-tree-evaluator-2.14.0.tgz#789e8a339a6de30b3321fde50322263e3e2c5431"
+  integrity sha512-XVeDDJBn7KySInI0Tao0qd865BF/23ZrEIEzDrzV8KAGmAwM4dUQwbdGitr6sc69eV5lXFlixEtxRZccNqvUSw==
   dependencies:
     axios "^1.5.1"
     change-case "^4.1.2"
     dequal "^2.0.3"
-    object-property-extractor "^1.0.7"
+    object-property-extractor "^1.0.10"
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -7962,10 +7953,10 @@ object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-object-property-extractor@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/object-property-extractor/-/object-property-extractor-1.0.7.tgz#5b80d6bc2109ca7f49239359b3762adf332cbb41"
-  integrity sha512-JiJtcIdSp7dTOTT5Ssztr/ZarFlruJAx11VEESgLPx6BTqjPzRgpg1KEqZjtnXlrf9MWc1Qcv1zaNMa1/3qLMA==
+object-property-extractor@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/object-property-extractor/-/object-property-extractor-1.0.10.tgz#970c04522b0d24cf1c059c333bd7144436318fa0"
+  integrity sha512-9zKpkfjUZMYSBnj95tFNR9hjCuiyeVKBCKB2KGG4Nj/BDY4IeE8NobN/4rO2v8sgnwXoKotTRtLyKbtlN2/JrQ==
 
 object.assign@^4.1.4:
   version "4.1.4"

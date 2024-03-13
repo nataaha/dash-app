@@ -1,13 +1,13 @@
 {
   "name": "dash-elmis",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "private": true,
   "type": "module",
   "dependencies": {
     "@alkuip/charts": "^3.0.21",
     "@alkuip/core": "^3.0.23",
     "@alkuip/forms": "^3.0.23",
-    "@alkuip/jsonforms": "^3.0.23",
+    "@alkuip/jsonforms": "^3.0.24",
     "@alkuip/maps": "^3.0.21",
     "@alkuip/tables": "^3.0.23",
     "@alkuip/visualization": "^3.0.23",
