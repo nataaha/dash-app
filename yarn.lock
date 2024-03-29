@@ -32,10 +32,10 @@
     d3-scale-chromatic "^3.0.0"
     echarts "^5.5.0"
 
-"@alkuip/core@^3.0.26":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.26.tgz#e29ca66cb691b53f66e370054944ce5360524c4f"
-  integrity sha512-XxnxThubsVRZACt4hwuIWdhjlpSSFDbWwBPNIkeyKC+ngRTS/I8zdCVVud+/SbvKS9434k/mbAZtdEAIEZB7jw==
+"@alkuip/core@^3.0.28":
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.28.tgz#7700eee64298d1141fe5b17266ab7fbc9745e9ed"
+  integrity sha512-fgNDvpFFmUkbL3BqENxVF7No5S+5hdn9RVIbSkk8NCRASJWp0O77wHgRvyB1ZTLCIfsRqFzY6ROG6sgHzNZHtA==
   dependencies:
     "@json2csv/plainjs" "^6.1.2"
     "@json2csv/transforms" "^6.1.2"
@@ -53,16 +53,17 @@
     js-cookie "^3.0.1"
     jwt-decode "^3.1.2"
     luxon "^3.4.3"
+    notistack "^3.0.1"
     qs "^6.11.1"
     randexp "^0.5.3"
     react-hot-toast "^2.4.0"
     uuid "^9.0.0"
     zustand "^4.5.2"
 
-"@alkuip/forms@^3.0.26":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.26.tgz#3864844130c502ab345dd5579e21ea73f1f75fad"
-  integrity sha512-U3x8tzSHEG4ONs58hSbADf22H4UndFrI7u/Bz2cBmiRiaMX9IjaQCm6ErC3UmIIbBRpmX9+j9Cbjq73y6h7r9g==
+"@alkuip/forms@^3.0.28":
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.28.tgz#fe128dbf37299a4c5e08fc4deb050760d50ae5c3"
+  integrity sha512-zWR2i1QbaP8CGH35YN+CzeTmTOiRZOCdcGlYvskJ5GkOsUPy7nnm9e8QFlFVZ+Agvigd6fI/UHAea+sM7bjszA==
   dependencies:
     "@lexical/clipboard" "^0.13.1"
     "@lexical/code" "^0.13.1"
@@ -93,10 +94,10 @@
     y-websocket "^1.5.4"
     yjs "^13.6.12"
 
-"@alkuip/jsonforms@^3.0.26":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.26.tgz#ffc77b51eb6836bc5426909a3988cb14252ee602"
-  integrity sha512-qoZHR660vOaV4+2utjYLFcyv+oJOpkaqTwRaSfckbUkibVnskdyWczTe+IP3yIPl5/uku+MvJ2dujzdbeONzsQ==
+"@alkuip/jsonforms@^3.0.28":
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.28.tgz#4c3a6da3a422a079de0fc2a1c6b6233a7a88b317"
+  integrity sha512-EEA1vnRG+LYkoaPEec4DKSA23MMJsWrfCy3fvic5L8WWoKAn3faPXMzKK+culVxXW8+meexFEvrLldBFXkipQQ==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^10.1.0"
     "@jsonforms/core" "3.1.0"
@@ -115,19 +116,19 @@
   dependencies:
     ol "^8.1.0"
 
-"@alkuip/tables@^3.0.26":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.26.tgz#71f5ab1405c69d255fbd6b1e26764c5842a7bd19"
-  integrity sha512-p760YGYWrb7LQaf7d4mZ+TN5ti7OUUIC0hwftVQVpniqecHomRc/jak2JURmhyUl0JCuRmfRL5v4/2BNp5cDpA==
+"@alkuip/tables@^3.0.28":
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.28.tgz#57862478cd7a313a404e51d29dc22661e27d5e7f"
+  integrity sha512-w/0yvRTQ8LQIhNk9JVmO8jAGxmLQN8zpDLwIj8Q/VMYM9HOaQPfLbKU2Az++WDzFuQ3o9R58qZas4EOjt17+3g==
   dependencies:
     "@mui/x-data-grid" "^7.0.0-alpha.9"
     immer "^9.0.21"
     use-immer "^0.9.0"
 
-"@alkuip/visualization@^3.0.26":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.26.tgz#a99da40cbe4075a8ef90b4636a92e13cff428dc7"
-  integrity sha512-iF9BecdLAUrMOtPJGSn+SCL3hu1tX9oliu5fvmo5RtZ2N8wFfFmMLlUnuFlcS7DmmC3TgaLNMclnEJu7kLD4zw==
+"@alkuip/visualization@^3.0.28":
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.28.tgz#d8f6079a03a6c8b845635479f73ee4efdd3c826c"
+  integrity sha512-VVs4N6Dv6W6gT9/t0kH1+WLBc/jdvTgJOXOIVUF/nQPi8nWFGjv9QQtJ2RvZx0vOcoBbiqAO0YvXpbUM3wN7Zw==
   dependencies:
     react-grid-layout "1.3.4"
     react-resizable "3.0.5"
@@ -5992,6 +5993,11 @@ globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
+goober@^2.0.33:
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.14.tgz#4a5c94fc34dc086a8e6035360ae1800005135acd"
+  integrity sha512-4UpC0NdGyAFqLNPnhCT2iHpza2q+RAY3GV85a/mRPdzyPQMsj0KmMMuetdIkzWRbJ+Hgau1EZztq8ImmiMGhsg==
+
 goober@^2.1.10:
   version "2.1.13"
   resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.13.tgz#e3c06d5578486212a76c9eba860cbc3232ff6d7c"
@@ -7793,13 +7799,13 @@ normalize-svg-path@^1.1.0:
   dependencies:
     svg-arc-to-cubic-bezier "^3.0.0"
 
-notistack@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/notistack/-/notistack-2.0.8.tgz#78cdf34c64e311bf1d1d71c2123396bcdea5e95b"
-  integrity sha512-/IY14wkFp5qjPgKNvAdfL5Jp6q90+MjgKTPh4c81r/lW70KeuX6b9pE/4f8L4FG31cNudbN9siiFS5ql1aSLRw==
+notistack@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/notistack/-/notistack-3.0.1.tgz#daf59888ab7e2c30a1fa8f71f9cba2978773236e"
+  integrity sha512-ntVZXXgSQH5WYfyU+3HfcXuKaapzAJ8fBLQ/G618rn3yvSzEbnOB8ZSOwhX+dAORy/lw+GC2N061JA0+gYWTVA==
   dependencies:
     clsx "^1.1.0"
-    hoist-non-react-statics "^3.3.0"
+    goober "^2.0.33"
 
 npm-bundled@^1.1.1:
   version "1.1.2"

@@ -1,5 +1,4 @@
-import { queryClient } from './Root';
-import { fetcher } from '@alkuip/core';
+import { fetcher, queryClient } from '@alkuip/core';
 
 export const useAppLoader = ()=>{
   return queryClient.fetchQuery({

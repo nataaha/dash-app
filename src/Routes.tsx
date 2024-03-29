@@ -14,7 +14,7 @@ import {
 import type { RouteObject } from "react-router-dom";
 import { Key, ReactNode } from 'react';
 import { useAppLoader } from './useAppLoader';
-import { queryClient } from './Root';
+import { queryClient } from '@alkuip/core';
 
 export type MenuRouteItem = {
   label: ReactNode;

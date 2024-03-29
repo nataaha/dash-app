@@ -2,9 +2,9 @@
   "version": "v1",
   "packages": {
     "@alkuip/forms": {
-      "signature": "40e8e905538f5a605a7b291d16cca268",
+      "signature": "0d4fd25bb30cfdc3bba31113445cf347",
       "file": true,
-      "replaced": "^3.0.26"
+      "replaced": "^3.0.27"
     },
     "@alkuip/charts": {
       "signature": "e7a319eb319d367f2e097a696ae9a4f0",
@@ -12,19 +12,19 @@
       "replaced": "^3.0.21"
     },
     "@alkuip/core": {
-      "signature": "5ffdd7bd6458b162b080ab05dc600dac",
+      "signature": "ff346abfa8e7b37cf25725d057a256b4",
       "file": true,
-      "replaced": "^3.0.26"
+      "replaced": "^3.0.27"
     },
     "@alkuip/tables": {
-      "signature": "cef2119f51a06c7b53954babe9db05f7",
+      "signature": "0d63dd810bc2c45a2bd947889b350969",
       "file": true,
-      "replaced": "^3.0.26"
+      "replaced": "^3.0.27"
     },
     "@alkuip/visualization": {
-      "signature": "39284e8af5a7f2d2564b87979c226fb4",
+      "signature": "57c95ded8c4b549a6d6686877d211fb2",
       "file": true,
-      "replaced": "^3.0.26"
+      "replaced": "^3.0.27"
     },
     "@alkuip/maps": {
       "signature": "a19ac787c6f97fefb5d86f25d2425bc1",
@@ -32,9 +32,9 @@
       "replaced": "^3.0.21"
     },
     "@alkuip/jsonforms": {
-      "signature": "ce0708cbc86197b256d9e635ff8e86b9",
+      "signature": "3a15ba262ce83a67e79796f4bc499e55",
       "file": true,
-      "replaced": "^3.0.26"
+      "replaced": "^3.0.27"
     }
   }
 }
