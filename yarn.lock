@@ -32,10 +32,10 @@
     d3-scale-chromatic "^3.0.0"
     echarts "^5.5.0"
 
-"@alkuip/core@^3.0.31":
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.31.tgz#c9533cab8113f7b81b65c0d011d68de41f1aa7ab"
-  integrity sha512-FWfB1fTGFTppv/8uFR8vqqXsoK86QC4t4j0iuD6DIw/l/uy4MKPdDEhMgIHMzQjnHFX7D1UoUn0RXBynu6OGRg==
+"@alkuip/core@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@alkuip/core/-/core-3.0.32.tgz#487ac246d2b22ced057d7f6ab47c1a0a2adaf411"
+  integrity sha512-KZEShoFZxZ7AIqTzOT02OwZv022z4nXx75hw/cjwjG3J9Viko6MrJgFe3pdWrsdJL9akWegoO3W3w1hzPvjhnA==
   dependencies:
     "@json2csv/plainjs" "^6.1.2"
     "@json2csv/transforms" "^6.1.2"
@@ -62,10 +62,10 @@
     uuid "^9.0.0"
     zustand "^4.5.2"
 
-"@alkuip/forms@^3.0.31":
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.31.tgz#3a0e6aaa7d22aea9985868756fe38ae497f38190"
-  integrity sha512-yURwIeI3FqW3vNjPd6K1jdh9QvDkyk7IW8chDst3qGHQx4psRdeBs9rhDsbFaOO7JD69waNdBj1iER3iAHa6nQ==
+"@alkuip/forms@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@alkuip/forms/-/forms-3.0.32.tgz#e646756fa8ec8a40e92e81a67e5399625cd9f44a"
+  integrity sha512-9cWlYRxUuNV49BYENP0B+v8KBZyZeuAMK5YA5ERScZ3saNT/xr8EZYJ5RzqcbYykaxEUtrUOk+F4FQWElNGgEw==
   dependencies:
     "@lexical/clipboard" "^0.13.1"
     "@lexical/code" "^0.13.1"
@@ -97,10 +97,10 @@
     y-websocket "^1.5.4"
     yjs "^13.6.12"
 
-"@alkuip/jsonforms@^3.0.31":
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.31.tgz#790297d1d48d9d4ee6f785837d579298cb2d9d0a"
-  integrity sha512-5aByeRvEI+4IHDzd8Ge1KkN3QLd/Y86/JU8PzDcg4WjxXioNeLB6eatkG/lzuR1n7/Vi1oV/cALyhSogcGfm0A==
+"@alkuip/jsonforms@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@alkuip/jsonforms/-/jsonforms-3.0.32.tgz#9a21f9ee6d891e91975775e27e68f5ac025bd12e"
+  integrity sha512-zza6pAZ3S31ZPGsDlY4JUKYeJO9O0FIW0oZpLxAv4vi0YI4637i/HTPYPGeVJsMllrd0QeiV5STnJS0rAN2kdw==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^10.1.0"
     "@jsonforms/core" "3.1.0"
@@ -119,19 +119,19 @@
   dependencies:
     ol "^8.1.0"
 
-"@alkuip/tables@^3.0.31":
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.31.tgz#ded654fbc4b030000785b56831e21f540e7dfd8f"
-  integrity sha512-6xwVTCDidSy4SzFSN78Mivm91PeUoWrQFfAzsjI7Rt+mwrswvUd0Nje79GFqPNXEoIZY9Qijd7Qd60Focw01LQ==
+"@alkuip/tables@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@alkuip/tables/-/tables-3.0.32.tgz#cd0506f7522ec33b45161078b1af92e0cbde4e02"
+  integrity sha512-1Ptla/ZRZ53q0hL7HvKcoxhMguC6LGf91qZIfe8XvpYs6aOe4vVZ3cDzAeQpn/4Joe3tzE6RN6y056ZULEPOzw==
   dependencies:
     "@mui/x-data-grid" "^7.0.0-alpha.9"
     immer "^9.0.21"
     use-immer "^0.9.0"
 
-"@alkuip/visualization@^3.0.31":
-  version "3.0.31"
-  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.31.tgz#ce4ab296144ed174aa1856168852a222ad82a8d9"
-  integrity sha512-I0h+WluLUVsYM7Z+hQQm8O1Q1GBiQy6kveLwEkIaxDSmJHJ0h2kYYdd9l58cqvW7SI/2zsaOqDOZBPHS8NbuRQ==
+"@alkuip/visualization@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@alkuip/visualization/-/visualization-3.0.32.tgz#632e92287ce25c55c82fcb0b684e8e42d6bf2c83"
+  integrity sha512-jT+Tqi+CY6QWl9+n9zB9KgGUCtN/L6mb1OxlJW3QOX2oH+AlW1vSxHHrXBAVv7kzK3Pt7EsLRnIjw06qdUghYw==
   dependencies:
     react-grid-layout "1.3.4"
     react-resizable "3.0.5"

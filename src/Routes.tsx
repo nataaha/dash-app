@@ -74,6 +74,7 @@ export const routes: RouteObject[]=[
       },
       {
         path: '*',
+        loader: useAppLoader,
         element: <SuspenseNotFoundView/>
       }
     ]
