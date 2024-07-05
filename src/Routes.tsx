@@ -2,14 +2,11 @@ import { createHashRouter } from 'react-router-dom';
 import {
   NotFound as SuspenseNotFoundView,
   AppWebView as SuspenseAppWebView,
-  AppWebViewHome,
   SignInPage,
   RecoverAccountPage,
-  LoginUiPage,
   AdminLayout,
-  LoginLayout,
-  useUiSchemaLoader,
   useUiPageLoader,
+  LoginUiPage,
 } from '@alkuip/jsonforms';
 import type { RouteObject } from "react-router-dom";
 import { Key, ReactNode } from 'react';
@@ -32,8 +29,24 @@ export const routes: RouteObject[]=[
         children:[
           {
             index: true,
-            loader: useUiSchemaLoader({queryClient}),
-            element: <AppWebViewHome/>
+            loader: useUiPageLoader({queryClient}),
+            element: <SuspenseAppWebView/>
+          },
+          {
+            path: "login", 
+            element: <LoginUiPage/>,
+          },
+          {
+            path: "auth-callback",
+            element: <LoginUiPage/>
+          },
+          {
+            path: "signup", 
+            element: <SignInPage/>
+          },
+          {
+            path: "authManager",
+            element: <RecoverAccountPage/>
           },
           {
             path: ':appName?',
@@ -52,26 +65,7 @@ export const routes: RouteObject[]=[
           },
         ]
       },
-      {
-        path: "/login", 
-        loader: useAppLoader,
-        element: <LoginLayout/>,
-      },
-      {
-        path: "/signup", 
-        loader: useAppLoader,
-        element: <SignInPage/>
-      },
-      {
-        path: "/authManager",
-        loader: useAppLoader,
-        element: <RecoverAccountPage/>
-      },
-      {
-        path: "/auth-callback",
-        loader: useAppLoader,
-        element: <LoginUiPage/>
-      },
+
       {
         path: '*',
         loader: useAppLoader,

@@ -1,7 +1,8 @@
 {
     "url":"https://dhis.nataaha.com",
     "api":"https://datax.nataaha.com",
-    "dataStore":"https://192.168.223.128/api",
+    "dataStore":"https://192.168.223.128/auth",
+    "newDataStore": "https://192.168.223.128/auth",
     "standalone": true,
     "strategy": "dhis2",
     "usernameField":"username",
@@ -23,7 +24,7 @@
     "notifications": false,
     "creditName":"Nataaha Hotels",
     "creditUrl":"",
-    "landingPage":"THREE_COLUMNS",
+    "landingPage":"",
     "auth":{
         "url":"https://auth0.nataaha.com",
         "realm":"test",
