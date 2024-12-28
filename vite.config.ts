@@ -1,7 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import svgrPlugin from "vite-plugin-svgr";
+import svgr from "vite-plugin-svgr";
 import checker from "vite-plugin-checker";
 import { VitePWA } from 'vite-plugin-pwa';
 import zipPack from "vite-plugin-zip-pack";
@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
             overlay: false,
             typescript: true,
         }),
-        svgrPlugin({
+        svgr({
             svgrOptions: {
               icon: true,
               // ...svgr options (https://react-svgr.com/docs/options/)
@@ -25,12 +25,23 @@ export default defineConfig(({ mode }) => {
         }),
         VitePWA({ 
             registerType: 'autoUpdate',
-            includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg','robots.txt','logo192.ng'], 
+            includeAssets: [
+              'favicon.ico', 
+              'apple-touch-icon.png', 
+              'masked-icon.svg',
+              'robots.txt',
+              'logo192.png'
+            ], 
+            manifest: {
+              theme_color: '#000000',
+            },
             devOptions: {
-                enabled: false,
+                enabled: true,
             },
             workbox: {
-                globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
+                globPatterns: [
+                  '**/*.{svg,png,jpg,gif,ico,js,css,html}'
+                ],
             },
         }),
         zipPack({
