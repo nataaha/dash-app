@@ -2,12 +2,12 @@
   "version": "v1",
   "packages": {
     "@alkuip/jsonforms": {
-      "signature": "a799d226e111ebf6f8d360143bdb715a",
+      "signature": "2e5e0210b688aad82ef0d01a25dab2d7",
       "file": true,
       "replaced": "^3.0.33"
     },
     "@alkuip/forms": {
-      "signature": "bcf95d2ce35bebd4d3b21e5b0d3d8878",
+      "signature": "89ca26f5a476060a9d5f86c161195550",
       "file": true,
       "replaced": "^3.0.33"
     },
@@ -32,7 +32,7 @@
       "replaced": "^3.0.33"
     },
     "@alkuip/maps": {
-      "signature": "398a72f02154617b65a6284eb1cb54af",
+      "signature": "a1d32fd318617167f52b3fdff80b3914",
       "file": true,
       "replaced": "^3.0.21"
     }
